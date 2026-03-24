@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advancing Sustainable Building: The Global Ascent of Mass Timber | OIN Daily English News</title>
+<title>Mass Timber: A Sustainable Future for Construction | OIN Daily English News</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -19,249 +19,243 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  .header .nav {
-    margin-left: auto;
-    font-size: 14px;
-  }
-  .header .nav a {
-    color: #cde6cd;
-    text-decoration: none;
-    margin-left: 16px;
-  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
   .header .nav a:hover { color: #fff; }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 16px;
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
   }
-  .meta {
-    margin-bottom: 24px;
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
   }
-  .meta .breadcrumb {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 8px;
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
   }
-  .meta .breadcrumb a { color: #888; text-decoration: none; }
-  .meta h2 {
-    font-size: 28px;
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 8px;
+    color: #2c5f2d;
   }
-  .meta .date { font-size: 14px; color: #888; }
-  .level-badge {
-    display: inline-block;
-    background: #e67e22;
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
     color: #fff;
-    border-radius: 4px;
-    padding: 2px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 13px;
-    font-weight: 700;
-    margin-right: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
   }
-  .tag {
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
     display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 13px;
-    color: #666;
+    cursor: pointer;
+    color: #555;
   }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
   .section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
-  .section-label {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 4px;
-  }
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .section-title-jp {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px;
-  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
   .instruction {
-    background: #f0f7e6;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
   }
   .instruction .jp { color: #666; font-size: 13px; }
 
   /* Vocabulary */
   .vocab-item {
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 12px;
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
   }
   .vocab-item:last-child { border-bottom: none; }
-  .vocab-word {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e67e22;
-  }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
   .vocab-pos {
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 1px 8px;
-    font-size: 12px;
-    color: #666;
-    margin-top: 4px;
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
   }
-  .vocab-jp {
-    font-size: 14px;
-    color: #666;
-    margin-top: 4px;
-  }
-  .vocab-phonetic {
-    color: #e67e22;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-  .vocab-def {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
-  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
   .vocab-example {
-    background: #fafafa;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 1.7;
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
   }
   .vocab-example b { font-weight: 700; }
-  .vocab-example .jp {
-    display: block;
-    font-size: 13px;
-    color: #888;
-    margin-top: 4px;
-  }
-  .vocab-word-jp {
-    font-size: 15px;
-    color: #444;
-    font-weight: 600;
-    margin-top: 2px;
-  }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
 
   /* Article */
-  .article-body {
-    font-size: 16px;
-    line-height: 2;
-  }
+  .article-body { font-size: 16px; line-height: 2; }
   .article-body p { margin-bottom: 4px; }
-
-  /* Paragraph-level JP toggle */
-  .para-jp {
-    margin-bottom: 16px;
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
   }
-  .para-jp summary {
-    cursor: pointer;
-    font-size: 12px;
-    color: #999;
-    user-select: none;
-    margin-bottom: 4px;
-  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
   .para-jp summary:hover { color: #e67e22; }
   .para-jp-text {
-    background: #fdf8f0;
-    border-left: 3px solid #e67e22;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-  .article-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #2c5f2d;
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
   }
 
   /* Questions */
-  .question-list {
-    list-style: none;
-    counter-reset: q;
-  }
+  .question-list { list-style: none; counter-reset: q; }
   .question-list li {
-    counter-increment: q;
-    padding: 16px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
   }
   .question-list li:last-child { border-bottom: none; }
-  .question-list li::before {
-    content: counter(q) ".";
-    font-weight: 700;
-    color: #2c5f2d;
-    margin-right: 8px;
-  }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
 
   /* Footer */
   .footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-    color: #999;
-    border-top: 1px solid #eee;
-    margin-top: 32px;
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
   }
   .footer a { color: #2c5f2d; text-decoration: none; }
 
-  /* Toggle translation */
-  .toggle-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .toggle-switch {
-    position: relative;
-    width: 44px;
-    height: 24px;
-  }
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
   .toggle-switch input { opacity: 0; width: 0; height: 0; }
   .toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background: #ccc;
-    border-radius: 24px;
-    transition: .3s;
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
   }
   .toggle-slider::before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background: #fff;
-    border-radius: 50%;
-    transition: .3s;
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
   }
   .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
   .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
@@ -270,57 +264,14 @@
   body.show-jp .vocab-jp { display: block; }
   .toggle-label { font-size: 14px; color: #666; }
 
-  /* Lesson Notes */
-  .notes-section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .notes-section .section-title { margin-bottom: 16px; }
-  .notes-area {
-    width: 100%;
-    min-height: 120px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 12px;
-    font-size: 14px;
-    font-family: inherit;
-    line-height: 1.7;
-    resize: vertical;
-  }
-  .notes-area:focus { outline: none; border-color: #2c5f2d; }
-  .notes-saved {
-    font-size: 12px;
-    color: #999;
-    margin-top: 6px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .notes-saved.show { opacity: 1; }
-  .collab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 16px;
-    padding: 10px 20px;
-    background: #2c5f2d;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .collab-btn:hover { background: #3a7a3b; }
-  .collab-hint {
-    font-size: 12px;
-    color: #999;
-    margin-top: 8px;
-    line-height: 1.5;
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
   }
 </style>
 </head>
@@ -332,252 +283,261 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="meta">
-    <div class="breadcrumb">
-      <a href="index.html">OIN English</a> / Lessons / Daily News
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Mass Timber: A Sustainable Future for Construction</h2>
+      <div class="date">2026年03月24日（火）</div>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Construction & Housing</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
     </div>
-    <h2>Advancing Sustainable Building: The Global Ascent of Mass Timber</h2>
-    <div class="date">2026年03月24日（火）</div>
-    <div style="margin-top:8px">
-      <span class="level-badge">8</span>
-      <span class="level-badge" style="background:#555">TOEIC 900</span>
-      <span class="tag">Construction & Housing</span>
-    </div>
-    <div class="toggle-wrap" style="margin-top:12px">
-      <label class="toggle-switch">
-        <input type="checkbox" id="jpToggle" checked>
-        <span class="toggle-slider"></span>
-      </label>
-      <span class="toggle-label">翻訳を表示</span>
-    </div>
-  </div>
 
-  <!-- Exercise 1: Vocabulary -->
-  <div class="section">
-    <div class="section-label">Exercise 1</div>
-    <div class="section-title">Vocabulary</div>
-    <div class="section-title-jp">ボキャブラリー</div>
-    <div class="instruction">
-      Repeat each word, definition, and example sentence after your tutor.
-      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
-    </div>
-    
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Mass Timber</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">集合木材</div>
+        <div class="vocab-word">advocate</div>
+        <div class="vocab-pos">verb</div>
+        <div class="vocab-jp jp-text">動詞</div>
+        <div class="vocab-word-jp jp-text">提唱する、主張する</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/mæs ˈtɪmbər/</div>
-        <div class="vocab-def">Large, engineered wood products used as structural components in buildings.</div>
+        <div class="vocab-phonetic">/ˈædvəkeɪt/</div>
+        <div class="vocab-def">To publicly support or recommend a particular cause or policy.</div>
         <div class="vocab-example">
-          The new office building incorporated <b>mass timber</b> elements for its main structure.
-          <span class="jp jp-text">その新しいオフィスビルは、主要構造に集合木材の要素を取り入れた。</span>
+          Environmental groups <b>advocate</b> for greater use of sustainable materials in construction.
+          <span class="jp jp-text">環境保護団体は、建設における持続可能な素材のより大きな利用を提唱している。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Cross-Laminated Timber (CLT)</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">直交集成板</div>
-      </div>
-      <div>
-        <div class="vocab-phonetic">/krɔːs ˈlæmɪneɪtɪd ˈtɪmbər/</div>
-        <div class="vocab-def">A type of mass timber made by gluing together layers of solid-sawn lumber, with each layer oriented perpendicular to the adjacent layers, offering high strength and stability.</div>
-        <div class="vocab-example">
-          The designers chose <b>CLT</b> for its excellent structural performance and environmental benefits.
-          <span class="jp jp-text">設計者は、優れた構造性能と環境上の利点からCLTを選んだ。</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="vocab-item">
-      <div>
-        <div class="vocab-word">Sustainability</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">持続可能性</div>
-      </div>
-      <div>
-        <div class="vocab-phonetic">/səˌsteɪnəˈbɪləti/</div>
-        <div class="vocab-def">The ability to be maintained at a certain rate or level, especially in relation to ecological balance and resource preservation.</div>
-        <div class="vocab-example">
-          The company's commitment to <b>sustainability</b> led it to explore eco-friendly building materials.
-          <span class="jp jp-text">その会社の持続可能性へのコミットメントは、環境に優しい建材の探求へとつながった。</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="vocab-item">
-      <div>
-        <div class="vocab-word">Embodied Carbon</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">建設時炭素排出量</div>
+        <div class="vocab-word">embodied carbon</div>
+        <div class="vocab-pos">noun phrase</div>
+        <div class="vocab-jp jp-text">名詞句</div>
+        <div class="vocab-word-jp jp-text">建材の製造・運搬・建設時に排出される炭素</div>
       </div>
       <div>
         <div class="vocab-phonetic">/ɪmˈbɒdid ˈkɑːrbən/</div>
-        <div class="vocab-def">The greenhouse gas emissions associated with the manufacturing, transport, and construction of building materials, as well as their end-of-life disposal.</div>
+        <div class="vocab-def">The greenhouse gas emissions associated with the materials and construction processes throughout the entire lifecycle of a building or infrastructure.</div>
         <div class="vocab-example">
-          Using timber significantly reduces the <b>embodied carbon</b> of a building compared to concrete.
-          <span class="jp jp-text">木材を使用することで、コンクリートと比較して建物の建設時炭素排出量を大幅に削減できる。</span>
+          Reducing <b>embodied carbon</b> is crucial for achieving carbon neutrality in the building sector.
+          <span class="jp jp-text">建築分野でカーボンニュートラルを達成するためには、エンボディド・カーボンを削減することが不可欠である。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Certification</div>
+        <div class="vocab-word">mitigation</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">認証</div>
+        <div class="vocab-word-jp jp-text">緩和、軽減</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌsɜːrtɪfɪˈkeɪʃən/</div>
-        <div class="vocab-def">An official document attesting a fact or qualification, often used to verify compliance with standards.</div>
+        <div class="vocab-phonetic">/ˌmɪtɪˈɡeɪʃən/</div>
+        <div class="vocab-def">The action of reducing the severity, seriousness, or painfulness of something.</div>
         <div class="vocab-example">
-          The project aimed to achieve the highest green building <b>certification</b> available.
-          <span class="jp jp-text">そのプロジェクトは、利用可能な最高のグリーンビルディング認証を取得することを目指した。</span>
+          The company invested in new technology for climate change <b>mitigation</b>.
+          <span class="jp jp-text">その会社は気候変動緩和のために新しい技術に投資した。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Proponent</div>
+        <div class="vocab-word">prefabrication</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">提唱者</div>
+        <div class="vocab-word-jp jp-text">プレハブ化、事前製作</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/prəˈpoʊnənt/</div>
-        <div class="vocab-def">A person who advocates a theory, proposal, or program.</div>
+        <div class="vocab-phonetic">/ˌpriːˌfæbrɪˈkeɪʃən/</div>
+        <div class="vocab-def">The manufacturing of components or entire structures in a factory before they are transported to the construction site for assembly.</div>
         <div class="vocab-example">
-          As a strong <b>proponent</b> of sustainable design, he frequently speaks about mass timber's advantages.
-          <span class="jp jp-text">持続可能なデザインの強力な提唱者として、彼は集合木材の利点について頻繁に講演している。</span>
+          <b>Prefabrication</b> can significantly reduce construction time and waste.
+          <span class="jp jp-text">プレハブ化は、建設時間と廃棄物を大幅に削減できる。</span>
         </div>
       </div>
     </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">resilience</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">回復力、弾力性</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/rɪˈzɪliəns/</div>
+        <div class="vocab-def">The capacity to recover quickly from difficulties; toughness.</div>
+        <div class="vocab-example">
+          The building's design incorporated features to improve its <b>resilience</b> to natural disasters.
+          <span class="jp jp-text">その建物の設計には、自然災害に対する回復力を高める特徴が組み込まれていた。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">sustainably sourced</div>
+        <div class="vocab-pos">adjective phrase</div>
+        <div class="vocab-jp jp-text">形容詞句</div>
+        <div class="vocab-word-jp jp-text">持続可能な方法で調達された</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/səˈsteɪnəbli sɔːrst/</div>
+        <div class="vocab-def">Obtained in a way that ensures long-term availability and does not deplete natural resources or harm the environment.</div>
+        <div class="vocab-example">
+          The new furniture line uses only <b>sustainably sourced</b> wood.
+          <span class="jp jp-text">新しい家具ラインは、持続可能な方法で調達された木材のみを使用している。</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Mass Timber: A Sustainable Future for Construction</div>
+              <p>The global construction industry is increasingly turning to mass timber as a viable and sustainable alternative to traditional building materials like concrete and steel. This innovative approach utilizes engineered wood products such as Cross-Laminated Timber (CLT), Glued Laminated Timber (Glulam), and Laminated Veneer Lumber (LVL) to create robust structural elements for buildings of all types, including high-rise structures.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">世界の建設業界は、コンクリートや鉄鋼といった従来の建築材料に代わる、実行可能で持続可能な選択肢として、集成木材（マス・ティンバー）にますます注目しています。この革新的なアプローチは、高層建築を含むあらゆる種類の建物の堅牢な構造要素を生み出すために、CLT（直交集成板）、Glulam（集成材）、LVL（単板積層材）などのエンジニアリング木材製品を利用しています。</p>
+        </details>
+      <p>Mass timber offers significant environmental advantages. Wood, being a renewable resource, sequesters carbon dioxide during its growth, effectively storing it within the building structure for its lifespan. This contrasts sharply with concrete and steel production, which are highly energy-intensive and contribute substantially to global greenhouse gas emissions. The reduction in embodied carbon alone makes mass timber an attractive option for developers aiming for green building certifications.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">集成木材は、環境面で大きな利点をもたらします。再生可能な資源である木材は、成長中に二酸化炭素を吸収し、建物の構造内にその寿命まで効果的に貯蔵します。これは、エネルギー集約型で地球規模の温室効果ガス排出に大きく寄与するコンクリートや鉄鋼の生産とは対照的です。エンボディド・カーボンの削減だけでも、グリーンビルディング認証を目指す開発業者にとって、集成木材は魅力的な選択肢となります。</p>
+        </details>
+      <p>Beyond its ecological benefits, mass timber construction boasts impressive structural properties. These engineered wood products are known for their high strength-to-weight ratio, excellent seismic performance, and natural fire resistance. While the idea of a wooden high-rise might initially raise safety concerns, extensive testing has demonstrated that mass timber panels char slowly, maintaining their structural integrity much longer than conventional timber.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">生態学的利点を超えて、集成木材建築は印象的な構造特性を誇ります。これらのエンジニアリング木材製品は、高い強度対重量比、優れた耐震性能、そして自然な耐火性で知られています。木造高層ビルという考えは当初安全上の懸念を引き起こすかもしれませんが、広範な試験により、集成木材パネルはゆっくりと炭化し、従来の木材よりもはるかに長く構造的完全性を維持することが示されています。</p>
+        </details>
+      <p>Furthermore, mass timber allows for accelerated construction schedules. Many components can be prefabricated off-site in factory settings, then transported and assembled quickly on-site. This modular approach minimizes disruption, reduces on-site labor requirements, and improves overall project efficiency, leading to cost savings and faster occupancy.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">さらに、集成木材は建設スケジュールの短縮を可能にします。多くの部品を工場でオフサイトでプレハブ化し、建設現場に輸送して迅速に組み立てることができます。このモジュラーアプローチは、混乱を最小限に抑え、オンサイトの労働要件を削減し、全体的なプロジェクト効率を向上させ、コスト削減と迅速な入居につながります。</p>
+        </details>
+      <p>Governments and industry bodies worldwide are actively promoting the adoption of mass timber. For instance, several nations are revising building codes to accommodate taller timber structures and investing in research and development to further enhance the material's properties and application range. Public-private partnerships are also emerging to support the expansion of the mass timber supply chain, from forestry management to manufacturing.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">世界中の政府や業界団体は、集成木材の採用を積極的に推進しています。例えば、いくつかの国では、より高い木造建築物に対応するために建築基準を改訂し、材料の特性と適用範囲をさらに強化するための研究開発に投資しています。林業管理から製造まで、集成木材のサプライチェーン拡大を支援するための官民パートナーシップも生まれています。</p>
+        </details>
+      <p>Despite the growing enthusiasm, challenges remain. The initial investment in manufacturing facilities for engineered wood products can be substantial. Moreover, there's a need for continued education and training across the construction sector to equip architects, engineers, and builders with the specialized knowledge required for designing and erecting mass timber buildings. Supply chain logistics for large timber elements also require careful planning.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">高まる熱意にもかかわらず、課題は残っています。エンジニアリング木材製品の製造設備への初期投資はかなりのものになる可能性があります。さらに、建設部門全体で、集成木材建築物の設計と建設に必要な専門知識を建築家、エンジニア、建設業者に提供するための継続的な教育と訓練が必要です。大規模な木材要素のサプライチェーンロジスティクスも慎重な計画を必要とします。</p>
+        </details>
+      <p>However, the long-term outlook for mass timber is overwhelmingly positive. As concerns about climate change intensify and the demand for sustainable urban development grows, mass timber is poised to become a cornerstone of future construction. Its ability to combine environmental responsibility with structural excellence and construction efficiency makes it a compelling solution for building a greener future.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">しかし、集成木材の長期的な見通しは圧倒的に肯定的です。気候変動への懸念が高まり、持続可能な都市開発への需要が増大するにつれて、集成木材は将来の建設の礎となるでしょう。環境責任、構造的卓越性、建設効率を兼ね備える能力は、より環境に優しい未来を築くための魅力的なソリューションとなっています。</p>
+        </details>
+      <p>Projects globally, from office buildings to residential complexes and even schools, are showcasing the versatility and aesthetic appeal of mass timber. Its natural warmth and biophilic qualities are also gaining appreciation, contributing to healthier and more inviting indoor environments for occupants. This widespread adoption underscores a significant paradigm shift in how we envision and construct our built environment.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">オフィスビルから住宅団地、さらには学校に至るまで、世界中のプロジェクトが集成木材の多様性と美的魅力を示しています。その自然な温かさとバイオフィリックな特性も高く評価されており、居住者にとってより健康的で魅力的な室内環境に貢献しています。この広範な採用は、私たちが構築環境をどのように構想し建設するかの大きなパラダイムシフトを強調しています。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>Have you noticed any new building materials being used in your local area, or perhaps in buildings you've visited recently?</li>
+      <li>When considering a new building project, which aspects do you prioritize most: cost, speed of construction, environmental impact, or aesthetics?</li>
+      <li>Do you think people in your country are generally open to new construction methods, or do they tend to prefer traditional approaches?</li>
+      <li>If you were involved in a construction project, would you actively advocate for the use of sustainable materials like mass timber?</li>
+      <li>What are some common misconceptions you think people might have about timber buildings, especially regarding safety or durability?</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>How do you think a country's climate and natural resources influence its preferred construction methods and materials?</li>
+      <li>Beyond construction, what other industries do you believe could benefit significantly from adopting more sustainable practices?</li>
+      <li>In what ways can governments encourage industries to adopt environmentally friendly innovations without stifling economic growth?</li>
+      <li>Do you believe that green building certifications truly incentivize developers, or are they often seen as merely marketing tools?</li>
+      <li>Looking ahead, what emerging technologies or materials do you think will have the biggest impact on the construction industry in the next 10-20 years?</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+    </div>
   </div>
 
-  <!-- Exercise 2: Article -->
-  <div class="section">
-    <div class="section-label">Exercise 2</div>
-    <div class="section-title">Article</div>
-    <div class="section-title-jp">ニュース記事</div>
-    <div class="instruction">
-      Read the article aloud on your own or repeat each paragraph after your tutor.
-      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
     </div>
-    <div class="article-body">
-      <div class="article-title">Advancing Sustainable Building: The Global Ascent of Mass Timber</div>
-            <p>The global construction industry is increasingly turning to mass timber as a sustainable and innovative alternative to traditional building materials like concrete and steel. This shift is driven by a growing demand for eco-friendly practices and advancements in wood engineering that allow for the creation of robust structural elements.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">世界の建設業界では、コンクリートや鉄骨といった従来の建材に代わる、持続可能で革新的な選択肢として集合木材への注目が高まっています。この変化は、環境に優しい慣行への需要の高まりと、堅牢な構造要素の製造を可能にする木材工学の進歩によって推進されています。</p>
-        </details>
-      <p>At the forefront of this movement is Cross-Laminated Timber (CLT), an engineered wood product made by gluing together layers of solid-sawn lumber. Each layer is oriented perpendicularly to the adjacent layers, creating panels with exceptional strength, stability, and rigidity. This allows CLT to be used for walls, floors, and roofs in mid-rise and even high-rise buildings.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">この動きの最前線にあるのが直交集成板（CLT）です。CLTは、ソリッド製材を層状に接着して作られるエンジニアードウッド製品で、各層は隣接する層に対して垂直に配向されており、卓越した強度、安定性、剛性を持つパネルが生まれます。これにより、CLTは中高層ビル、さらには高層ビルの壁、床、屋根に使用できます。</p>
-        </details>
-      <p>One of mass timber's most compelling advantages lies in its environmental benefits. Wood naturally sequesters carbon dioxide from the atmosphere, effectively storing it within the building structure. This significantly reduces the embodied carbon associated with construction, making timber buildings a powerful tool in combating climate change.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">集合木材の最も魅力的な利点の1つは、その環境上の利点にあります。木材は自然に大気中の二酸化炭素を吸収し、建物の構造内に効果的に貯蔵します。これにより、建設に伴う建設時炭素排出量が大幅に削減され、木造建築は気候変動対策の強力なツールとなります。</p>
-        </details>
-      <p>Beyond environmental gains, mass timber construction offers practical benefits. Its prefabricated nature allows for faster on-site assembly, reducing construction timelines and labor costs. Timber structures are also inherently lighter than their concrete counterparts, potentially leading to smaller, less expensive foundations. The aesthetic appeal of exposed wood further enhances indoor environments.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">環境面でのメリットに加え、集合木材による建設は実用的な利点も提供します。そのプレハブ的な性質により、現場での組み立てが迅速になり、工期と人件費を削減できます。木造構造はコンクリート製のものよりも本質的に軽量であるため、より小さく、安価な基礎となる可能性があります。露出した木材の美しい魅力は、屋内環境をさらに向上させます。</p>
-        </details>
-      <p>Across the globe, architects and developers are embracing mass timber for a variety of projects. From multi-story residential complexes to commercial office spaces and educational facilities, mass timber demonstrates remarkable versatility. Notable projects in North America, Europe, and Asia showcase its application in diverse climates and architectural styles, often achieving high standards of green building certification.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">世界中で、建築家や開発者はさまざまなプロジェクトで集合木材を採用しています。多層集合住宅から商業オフィススペース、教育施設に至るまで、集合木材は目覚ましい多様性を示しています。北米、ヨーロッパ、アジアの注目すべきプロジェクトは、多様な気候と建築様式でのその応用を紹介し、しばしば高いグリーンビルディング認証基準を達成しています。</p>
-        </details>
-      <p>Despite its promising potential, mass timber faces challenges, including initial material costs and evolving regulatory frameworks. Perceptions regarding fire safety are also a common concern, though rigorous testing and advanced engineering have demonstrated that mass timber structures can perform exceptionally well under fire conditions, often charring on the surface to create a protective layer.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">その有望な可能性にもかかわらず、集合木材は初期材料費や進化する規制の枠組みを含む課題に直面しています。防火安全性に関する認識も一般的な懸念ですが、厳格な試験と高度な工学によって、集合木材構造は火災条件下で非常に優れた性能を発揮し、表面が炭化して保護層を形成することが示されています。</p>
-        </details>
-      <p>Governments and industry associations are acting as strong proponents for mass timber, implementing initiatives and offering incentives to accelerate its adoption. These efforts aim to streamline building codes, support research and development, and foster a skilled workforce capable of working with these advanced materials.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">政府や業界団体は、集合木材の強力な提唱者として活動し、その採用を加速させるためのイニシアチブを実施し、インセンティブを提供しています。これらの努力は、建築基準の合理化、研究開発の支援、そしてこれらの先進的な材料を扱える熟練した労働力の育成を目指しています。</p>
-        </details>
-      <p>As the drive for sustainable urban development intensifies, mass timber is poised to play a crucial role. Its ability to combine structural integrity with significant environmental advantages positions it not just as a trend, but as a foundational element of future-proof, low-carbon construction, fundamentally reshaping how we build our cities.</p>
-        <details class="para-jp">
-          <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">持続可能な都市開発への推進が強まるにつれて、集合木材は極めて重要な役割を果たす準備ができています。構造的完全性と重要な環境上の利点を組み合わせる能力は、それを単なるトレンドとしてではなく、未来志向の低炭素建設の基本的な要素として位置づけ、都市の建設方法を根本的に再構築します。</p>
-        </details>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
     </div>
-  </div>
 
-  <!-- Exercise 3: Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 3</div>
-    <div class="section-title">Discussion</div>
-    <div class="section-title-jp">ディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" id="collabBtn" href="#" target="_blank">
+        共同ノートを開く
+      </a>
+      <div class="collab-hint">
+        登録不要。このリンクをDMMチャットに貼るだけで先生もタイプできます。
+      </div>
+      <div class="collab-link-box" id="collabLinkBox">
+        <span>URL: </span><a id="collabLinkText" href="#" target="_blank"></a>
+        <br>
+        <button class="copy-btn" id="copyBtn">URLをコピー</button>
+      </div>
     </div>
-    <ol class="question-list">
-            <li>When considering new building materials, what factors do you prioritize most: cost, aesthetics, sustainability, or durability? Why?</li>
-      <li>Have you ever seen a building made with innovative materials like mass timber, or perhaps visited a construction site using modern techniques? What was your impression?</li>
-      <li>How do you think traditional construction methods compare to newer, more sustainable approaches in terms of their long-term impact on the environment and society?</li>
-      <li>If you were designing a new office space or home, would you prefer the look and feel of natural wood, or do you gravitate towards more conventional materials like concrete or steel? What influences your choice?</li>
-      <li>In your daily life, how much attention do you pay to the sustainability of the products or services you use? Are there any areas where you actively seek out eco-friendly options?</li>
-    </ol>
-  </div>
-
-  <!-- Exercise 4: Further Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 4</div>
-    <div class="section-title">Further Discussion</div>
-    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
-    </div>
-    <ol class="question-list">
-            <li>Looking ahead, what major changes do you anticipate in urban development over the next few decades, especially regarding sustainability and smart city concepts?</li>
-      <li>Do you believe governments should offer more incentives or stricter regulations to encourage the adoption of green technologies in industries like construction?</li>
-      <li>How can industries effectively balance the need for economic growth with the imperative of environmental protection? Can they truly go hand-in-hand?</li>
-      <li>What role do you think public awareness and education play in the successful adoption of new, sustainable technologies like mass timber?</li>
-      <li>Beyond construction, what other industries do you think are ripe for significant transformation through sustainable innovations, and why?</li>
-    </ol>
-  </div>
-
-  <!-- Lesson Notes -->
-  <div class="notes-section">
-    <div class="section-label">Lesson Notes</div>
-    <div class="section-title">レッスンノート</div>
-    <p style="font-size:14px;color:#666;margin-bottom:12px;">
-      先生からのフィードバックや自分の気づきをメモしましょう。自動保存されます。
-    </p>
-    <textarea class="notes-area" id="myNotes" placeholder="例: 発音を直された単語、新しい表現、次回までの課題など..."></textarea>
-    <div class="notes-saved" id="notesSaved">保存しました ✓</div>
-
-    <a class="collab-btn" id="collabBtn" href="#" target="_blank">
-      共同ノートを開く（先生と共有）
-    </a>
-    <div class="collab-hint">
-      登録不要。リンクをDMMのチャットに貼るだけで先生もタイプできます。<br>
-      レッスン中に先生が気になったポイントを書き込んでもらえます。
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>Generated by OIN Daily English News System</p>
-    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
   </div>
 </div>
 
@@ -592,7 +552,6 @@
   const notesArea = document.getElementById('myNotes');
   const notesSaved = document.getElementById('notesSaved');
 
-  // 保存済みノートを読み込み
   const saved = localStorage.getItem(NOTES_KEY);
   if (saved) notesArea.value = saved;
 
@@ -606,18 +565,31 @@
     }, 500);
   });
 
-  // 共同ノート（CryptPad — 登録不要）
-  const lessonId = '2026-03-24_lesson-1'.replace(/[^a-zA-Z0-9-]/g, '');
-  const collabUrl = `https://cryptpad.fr/pad/#/2/pad/edit/${btoa(lessonId + '-' + Date.now()).replace(/=/g, '').slice(0, 32)}/`;
-
-  // 共同ノートリンクを一度だけ生成してLocalStorageに保存
+  // 共同ノート（Etherpad — 登録不要）
   const COLLAB_KEY = 'oin_collab_2026-03-24_lesson-1';
   let collabLink = localStorage.getItem(COLLAB_KEY);
   if (!collabLink) {
-    collabLink = `https://cryptpad.fr/pad/#/2/pad/edit/${Array.from(crypto.getRandomValues(new Uint8Array(24))).map(b=>b.toString(36)).join('').slice(0,32)}/`;
+    // レッスンIDからユニークなパッド名を生成
+    const padName = 'oin-2026-03-24_lesson-1-' + Math.random().toString(36).slice(2, 10);
+    collabLink = 'https://etherpad.wikimedia.org/p/' + padName;
     localStorage.setItem(COLLAB_KEY, collabLink);
   }
-  document.getElementById('collabBtn').href = collabLink;
+
+  const collabBtn = document.getElementById('collabBtn');
+  const collabLinkBox = document.getElementById('collabLinkBox');
+  const collabLinkText = document.getElementById('collabLinkText');
+
+  collabBtn.href = collabLink;
+  collabLinkText.href = collabLink;
+  collabLinkText.textContent = collabLink;
+  collabLinkBox.style.display = 'block';
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(collabLink).then(() => {
+      document.getElementById('copyBtn').textContent = 'コピーしました ✓';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'URLをコピー', 2000);
+    });
+  });
 </script>
 </body>
 </html>

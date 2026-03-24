@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The IoT and AI Revolutionizing Industrial Machinery | OIN Daily English News</title>
+<title>Timber Industry Navigates Economic Headwinds with Innovation | OIN Daily English News</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -19,249 +19,243 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  .header .nav {
-    margin-left: auto;
-    font-size: 14px;
-  }
-  .header .nav a {
-    color: #cde6cd;
-    text-decoration: none;
-    margin-left: 16px;
-  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
   .header .nav a:hover { color: #fff; }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 16px;
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
   }
-  .meta {
-    margin-bottom: 24px;
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
   }
-  .meta .breadcrumb {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 8px;
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
   }
-  .meta .breadcrumb a { color: #888; text-decoration: none; }
-  .meta h2 {
-    font-size: 28px;
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 8px;
+    color: #2c5f2d;
   }
-  .meta .date { font-size: 14px; color: #888; }
-  .level-badge {
-    display: inline-block;
-    background: #e67e22;
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
     color: #fff;
-    border-radius: 4px;
-    padding: 2px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 13px;
-    font-weight: 700;
-    margin-right: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
   }
-  .tag {
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
     display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 13px;
-    color: #666;
+    cursor: pointer;
+    color: #555;
   }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
   .section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
-  .section-label {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 4px;
-  }
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .section-title-jp {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px;
-  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
   .instruction {
-    background: #f0f7e6;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
   }
   .instruction .jp { color: #666; font-size: 13px; }
 
   /* Vocabulary */
   .vocab-item {
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 12px;
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
   }
   .vocab-item:last-child { border-bottom: none; }
-  .vocab-word {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e67e22;
-  }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
   .vocab-pos {
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 1px 8px;
-    font-size: 12px;
-    color: #666;
-    margin-top: 4px;
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
   }
-  .vocab-jp {
-    font-size: 14px;
-    color: #666;
-    margin-top: 4px;
-  }
-  .vocab-phonetic {
-    color: #e67e22;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-  .vocab-def {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
-  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
   .vocab-example {
-    background: #fafafa;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 1.7;
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
   }
   .vocab-example b { font-weight: 700; }
-  .vocab-example .jp {
-    display: block;
-    font-size: 13px;
-    color: #888;
-    margin-top: 4px;
-  }
-  .vocab-word-jp {
-    font-size: 15px;
-    color: #444;
-    font-weight: 600;
-    margin-top: 2px;
-  }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
 
   /* Article */
-  .article-body {
-    font-size: 16px;
-    line-height: 2;
-  }
+  .article-body { font-size: 16px; line-height: 2; }
   .article-body p { margin-bottom: 4px; }
-
-  /* Paragraph-level JP toggle */
-  .para-jp {
-    margin-bottom: 16px;
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
   }
-  .para-jp summary {
-    cursor: pointer;
-    font-size: 12px;
-    color: #999;
-    user-select: none;
-    margin-bottom: 4px;
-  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
   .para-jp summary:hover { color: #e67e22; }
   .para-jp-text {
-    background: #fdf8f0;
-    border-left: 3px solid #e67e22;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-  .article-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #2c5f2d;
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
   }
 
   /* Questions */
-  .question-list {
-    list-style: none;
-    counter-reset: q;
-  }
+  .question-list { list-style: none; counter-reset: q; }
   .question-list li {
-    counter-increment: q;
-    padding: 16px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
   }
   .question-list li:last-child { border-bottom: none; }
-  .question-list li::before {
-    content: counter(q) ".";
-    font-weight: 700;
-    color: #2c5f2d;
-    margin-right: 8px;
-  }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
 
   /* Footer */
   .footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-    color: #999;
-    border-top: 1px solid #eee;
-    margin-top: 32px;
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
   }
   .footer a { color: #2c5f2d; text-decoration: none; }
 
-  /* Toggle translation */
-  .toggle-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .toggle-switch {
-    position: relative;
-    width: 44px;
-    height: 24px;
-  }
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
   .toggle-switch input { opacity: 0; width: 0; height: 0; }
   .toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background: #ccc;
-    border-radius: 24px;
-    transition: .3s;
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
   }
   .toggle-slider::before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background: #fff;
-    border-radius: 50%;
-    transition: .3s;
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
   }
   .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
   .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
@@ -270,57 +264,14 @@
   body.show-jp .vocab-jp { display: block; }
   .toggle-label { font-size: 14px; color: #666; }
 
-  /* Lesson Notes */
-  .notes-section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .notes-section .section-title { margin-bottom: 16px; }
-  .notes-area {
-    width: 100%;
-    min-height: 120px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 12px;
-    font-size: 14px;
-    font-family: inherit;
-    line-height: 1.7;
-    resize: vertical;
-  }
-  .notes-area:focus { outline: none; border-color: #2c5f2d; }
-  .notes-saved {
-    font-size: 12px;
-    color: #999;
-    margin-top: 6px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .notes-saved.show { opacity: 1; }
-  .collab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 16px;
-    padding: 10px 20px;
-    background: #2c5f2d;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .collab-btn:hover { background: #3a7a3b; }
-  .collab-hint {
-    font-size: 12px;
-    color: #999;
-    margin-top: 8px;
-    line-height: 1.5;
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
   }
 </style>
 </head>
@@ -332,252 +283,261 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="meta">
-    <div class="breadcrumb">
-      <a href="index.html">OIN English</a> / Lessons / Daily News
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Timber Industry Navigates Economic Headwinds with Innovation</h2>
+      <div class="date">2026年03月24日（火）</div>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Trade & Markets</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
     </div>
-    <h2>The IoT and AI Revolutionizing Industrial Machinery</h2>
-    <div class="date">2026年03月24日（火）</div>
-    <div style="margin-top:8px">
-      <span class="level-badge">8</span>
-      <span class="level-badge" style="background:#555">TOEIC 900</span>
-      <span class="tag">Manufacturing & Machinery</span>
-    </div>
-    <div class="toggle-wrap" style="margin-top:12px">
-      <label class="toggle-switch">
-        <input type="checkbox" id="jpToggle" checked>
-        <span class="toggle-slider"></span>
-      </label>
-      <span class="toggle-label">翻訳を表示</span>
-    </div>
-  </div>
 
-  <!-- Exercise 1: Vocabulary -->
-  <div class="section">
-    <div class="section-label">Exercise 1</div>
-    <div class="section-title">Vocabulary</div>
-    <div class="section-title-jp">ボキャブラリー</div>
-    <div class="instruction">
-      Repeat each word, definition, and example sentence after your tutor.
-      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
-    </div>
-    
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">IoT (Internet of Things)</div>
+        <div class="vocab-word">headwinds</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">モノのインターネット</div>
+        <div class="vocab-word-jp jp-text">逆風、向かい風</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌaɪ oʊ ˈtiː/</div>
-        <div class="vocab-def">A network of physical objects embedded with sensors, software, and other technologies for connecting and exchanging data with other devices and systems over the internet.</div>
+        <div class="vocab-phonetic">/ˈhɛdwɪndz/</div>
+        <div class="vocab-def">A force or influence that makes progress more difficult.</div>
         <div class="vocab-example">
-          The factory implemented <b>IoT</b> sensors on all its production lines to monitor performance in real-time.
-          <span class="jp jp-text">その工場は、生産ラインすべてにIoTセンサーを導入し、リアルタイムで性能を監視した。</span>
+          The company faced significant economic <b>headwinds</b> last quarter, including rising material costs.
+          <span class="jp jp-text">その会社は先四半期、原材料費の高騰を含む深刻な経済的逆風に直面した。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Automation</div>
+        <div class="vocab-word">resilience</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">自動化</div>
+        <div class="vocab-word-jp jp-text">回復力、耐久性</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌɔːtəˈmeɪʃən/</div>
-        <div class="vocab-def">The use of largely automatic equipment in a system of manufacturing or other production process.</div>
+        <div class="vocab-phonetic">/rɪˈzɪliəns/</div>
+        <div class="vocab-def">The capacity to recover quickly from difficulties; toughness.</div>
         <div class="vocab-example">
-          Increased <b>automation</b> in the assembly plant led to higher output and fewer errors.
-          <span class="jp jp-text">組立工場での自動化の進展により、生産量が増加し、エラーが減少した。</span>
+          The industry's <b>resilience</b> was tested by the sudden downturn in demand.
+          <span class="jp jp-text">業界の回復力は、突然の需要低迷によって試された。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Predictive Maintenance</div>
+        <div class="vocab-word">diversification</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">予知保全</div>
+        <div class="vocab-word-jp jp-text">多様化、多角化</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/prɪˈdɪktɪv ˈmeɪntənəns/</div>
-        <div class="vocab-def">Techniques designed to help determine the condition of in-service equipment in order to predict when maintenance should be performed, preventing unexpected breakdowns.</div>
+        <div class="vocab-phonetic">/daɪˌvɜːrsɪfɪˈkeɪʃən/</div>
+        <div class="vocab-def">The process of a company enlarging or varying its range of products or field of operation.</div>
         <div class="vocab-example">
-          <b>Predictive maintenance</b> systems use data analytics to anticipate machinery failures.
-          <span class="jp jp-text">予知保全システムは、データ分析を用いて機械の故障を予測する。</span>
+          <b>Diversification</b> into new markets helped the firm weather the economic storm.
+          <span class="jp jp-text">新しい市場への多角化が、その会社が経済的困難を乗り切るのに役立った。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Data Analytics</div>
+        <div class="vocab-word">consolidation</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">データ分析</div>
+        <div class="vocab-word-jp jp-text">統合、合併</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˈdeɪtə ˌænəˈlɪtɪks/</div>
-        <div class="vocab-def">The process of examining data sets to discover patterns, draw conclusions, and support decision-making, often with the aid of specialized software and systems.</div>
+        <div class="vocab-phonetic">/kənˌsɒlɪˈdeɪʃən/</div>
+        <div class="vocab-def">The action or process of combining a number of things into a single, more effective or coherent whole.</div>
         <div class="vocab-example">
-          Through sophisticated <b>data analytics</b>, the company identified key areas for operational improvement.
-          <span class="jp jp-text">高度なデータ分析を通じて、同社は業務改善の主要な領域を特定した。</span>
+          The industry is undergoing a period of <b>consolidation</b> as smaller players are acquired.
+          <span class="jp jp-text">業界は、小規模な企業が買収される中で統合の時代を迎えている。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Integration</div>
+        <div class="vocab-word">tariffs</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">統合</div>
+        <div class="vocab-word-jp jp-text">関税</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌɪntɪˈɡreɪʃən/</div>
-        <div class="vocab-def">The act or process of combining several things into a complete or harmonious whole.</div>
+        <div class="vocab-phonetic">/ˈtærɪfs/</div>
+        <div class="vocab-def">Taxes or duties to be paid on a particular class of imports or exports.</div>
         <div class="vocab-example">
-          The seamless <b>integration</b> of new software with existing hardware significantly boosted efficiency.
-          <span class="jp jp-text">新しいソフトウェアと既存のハードウェアのシームレスな統合は、効率を大幅に向上させた。</span>
+          New <b>tariffs</b> on imported timber could increase construction costs.
+          <span class="jp jp-text">輸入木材に対する新たな関税は、建設コストを上昇させる可能性がある。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Optimisation</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">最適化</div>
+        <div class="vocab-word">reconfigure</div>
+        <div class="vocab-pos">verb</div>
+        <div class="vocab-jp jp-text">動詞</div>
+        <div class="vocab-word-jp jp-text">再構成する、再設定する</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌɒptɪmaɪˈzeɪʃən/</div>
-        <div class="vocab-def">The action of making the best or most effective use of a situation or resource.</div>
+        <div class="vocab-phonetic">/ˌriːkənˈfɪɡjʊər/</div>
+        <div class="vocab-def">To configure again or differently.</div>
         <div class="vocab-example">
-          The company's goal is the <b>optimisation</b> of its supply chain for maximum cost-efficiency.
-          <span class="jp jp-text">同社の目標は、最大の費用対効果を得るためのサプライチェーンの最適化である。</span>
+          Businesses are forced to <b>reconfigure</b> their supply chains in response to global events.
+          <span class="jp jp-text">企業は世界的な出来事に対応してサプライチェーンを再構成せざるを得ない。</span>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Exercise 2: Article -->
-  <div class="section">
-    <div class="section-label">Exercise 2</div>
-    <div class="section-title">Article</div>
-    <div class="section-title-jp">ニュース記事</div>
-    <div class="instruction">
-      Read the article aloud on your own or repeat each paragraph after your tutor.
-      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
     </div>
-    <div class="article-body">
-      <div class="article-title">The IoT and AI Revolutionizing Industrial Machinery</div>
-            <p>The industrial machinery sector is undergoing a profound transformation, driven by the rapid advancements in digital technologies. The integration of the Internet of Things (IoT) and Artificial Intelligence (AI) is fundamentally reshaping how machinery operates, is maintained, and contributes to overall manufacturing efficiency.</p>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Timber Industry Navigates Economic Headwinds with Innovation</div>
+              <p>The global timber industry is currently navigating a period of significant economic uncertainty, marked by fluctuating demand, rising operational costs, and persistent supply chain disruptions. Many sawmills, particularly smaller operations, are facing immense pressure, with some forced to scale back production or even cease operations entirely. This challenging environment underscores the need for strategic adaptation and innovation across the sector.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">産業機械部門は、デジタル技術の急速な進歩によって、抜本的な変革を遂げています。モノのインターネット（IoT）と人工知能（AI）の統合は、機械の運用方法、保守方法、そして製造効率全体への貢献方法を根本的に再構築しています。</p>
+          <p class="para-jp-text">世界の木材産業は現在、需要の変動、運営コストの上昇、そしてサプライチェーンの継続的な混乱によって特徴づけられる、著しい経済的不確実性の時期を乗り越えています。多くの製材所、特に小規模な事業者は甚大な圧力に直面しており、一部は生産規模を縮小するか、完全に操業を停止することを余儀なくされています。この困難な環境は、セクター全体での戦略的な適応と革新の必要性を強調しています。</p>
         </details>
-      <p>At its core, IoT enables industrial machines to become 'smart' by embedding them with sensors and connectivity. These devices gather vast amounts of real-time data on everything from temperature and vibration to energy consumption and output rates. This data stream provides unprecedented visibility into operational performance.</p>
+      <p>Recent reports indicate a notable softening in demand for lumber in key markets, contributing to a downward trend in timber prices after a period of unusual highs. This price correction, while potentially easing pressure on builders, creates new financial headwinds for timber producers and processors who have invested heavily in expansion or modernization. Companies are now scrutinizing their cost structures and seeking efficiencies wherever possible.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">その核となるのは、IoTがセンサーと接続機能を組み込むことで産業機械を「スマート」にすることです。これらのデバイスは、温度や振動からエネルギー消費量や生産速度に至るまで、あらゆるものに関する膨大な量のリアルタイムデータを収集します。このデータストリームは、運用パフォーマンスに対する前例のない可視性を提供します。</p>
+          <p class="para-jp-text">最近の報告によると、主要市場での木材需要が著しく軟化しており、異常な高値の期間を経て木材価格の下降傾向に貢献しています。この価格修正は、建設業者への圧力を緩和する可能性はありますが、拡大や近代化に多額の投資をしてきた木材生産者や加工業者にとっては新たな財政的逆風を生み出しています。企業は現在、コスト構造を精査し、可能な限り効率化を追求しています。</p>
         </details>
-      <p>Leveraging this data, AI algorithms are revolutionizing maintenance strategies. Instead of scheduled or reactive repairs, manufacturers can now employ predictive maintenance. AI analyzes data patterns to anticipate potential equipment failures, allowing for timely interventions before breakdowns occur, thereby minimizing downtime and costly emergency repairs.</p>
+      <p>In response to these market dynamics, some industry players are shifting their focus from relying solely on commodity lumber production to developing higher-value engineered wood products. This includes investments in facilities for Cross-Laminated Timber (CLT) and Glued Laminated Timber (Glulam), which offer greater structural integrity and sustainability benefits, appealing to architects and developers seeking modern construction solutions.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">このデータを活用することで、AIアルゴリズムは保守戦略に革命をもたらしています。定期的な修理や事後的な修理ではなく、メーカーは予知保全を導入できるようになりました。AIはデータパターンを分析して潜在的な機器の故障を予測し、故障が発生する前にタイムリーな介入を可能にし、ダウンタイムや高額な緊急修理を最小限に抑えます。</p>
+          <p class="para-jp-text">これらの市場の動きに対応して、一部の業界関係者は、商品木材生産のみに依存するのではなく、より高付加価値のエンジニアリング木材製品の開発に焦点を移しています。これには、より優れた構造的完全性と持続可能性の利点を提供し、現代的な建設ソリューションを求める建築家や開発業者にアピールする、CLT（直交集成板）やGlulam（集成材）の施設への投資が含まれます。</p>
         </details>
-      <p>Beyond maintenance, AI-driven data analytics optimize various aspects of production. Machines can adjust their settings dynamically to enhance performance, reduce waste, and improve product quality. This level of real-time optimization leads to significant gains in productivity and overall operational effectiveness.</p>
+      <p>Furthermore, the timber industry is witnessing a trend towards consolidation. Larger, more robust companies are acquiring smaller, struggling enterprises, aiming to achieve economies of scale and enhance market share. While this process can lead to job losses in some localized areas, it often results in a more streamlined and efficient industry overall, better equipped to compete on a global stage.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">保守を超えて、AI主導のデータ分析は生産のさまざまな側面を最適化します。機械は動的に設定を調整してパフォーマンスを向上させ、無駄を削減し、製品品質を向上させることができます。このリアルタイム最適化のレベルは、生産性と全体的な運用効率の大幅な向上につながります。</p>
+          <p class="para-jp-text">さらに、木材産業では統合の傾向が見られます。より大きく、より堅固な企業が、苦境にある小規模企業を買収し、規模の経済を達成し市場シェアを拡大することを目指しています。このプロセスは一部の地域で失業を引き起こす可能性がありますが、多くの場合、全体としてより合理化され効率的な産業につながり、世界市場で競争する能力が高まります。</p>
         </details>
-      <p>The synergy between IoT and AI extends to entire factory floors, creating 'smart factories.' Here, interconnected machines, robots, and systems communicate autonomously, coordinating tasks and adapting to changing production demands. This comprehensive automation reduces the need for human intervention in repetitive or hazardous tasks.</p>
+      <p>Technological adoption is also becoming a critical differentiator. Modern sawmills are integrating advanced automation and data analytics to optimize lumber recovery from logs, reduce waste, and improve operational throughput. Such innovations are not only about cutting costs but also about enhancing the overall resilience and competitiveness of timber processing operations.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">IoTとAIの相乗効果は、工場全体に広がり、「スマート工場」を生み出しています。ここでは、相互接続された機械、ロボット、システムが自律的に通信し、タスクを調整し、変化する生産需要に適応します。この包括的な自動化により、反復的または危険なタスクにおける人間の介入の必要性が減少します。</p>
+          <p class="para-jp-text">技術の導入もまた、重要な差別化要因となっています。現代の製材所は、丸太からの木材回収を最適化し、廃棄物を削減し、運用スループットを向上させるために、高度な自動化とデータ分析を統合しています。このような革新はコスト削減だけでなく、木材加工事業全体の回復力と競争力を高めることにもつながります。</p>
         </details>
-      <p>However, this digital transformation is not without its challenges. Ensuring robust cybersecurity for interconnected systems is paramount to protect sensitive operational data. Furthermore, there is a growing demand for a skilled workforce proficient in managing and interpreting these advanced technologies, necessitating continuous training and upskilling initiatives.</p>
+      <p>Beyond production, the industry is exploring new avenues for revenue generation and waste reduction. For instance, increasing attention is being paid to biomass energy production from sawmill by-products, and the development of wood-based bioplastics and chemicals. These efforts represent a strategic diversification away from traditional lumber sales, creating new markets and reducing reliance on volatile housing markets.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">しかし、このデジタルトランスフォーメーションには課題がないわけではありません。相互接続されたシステムの堅牢なサイバーセキュリティを確保することは、機密性の高い運用データを保護するために最も重要です。さらに、これらの高度な技術を管理・解釈する能力を持つ熟練した労働力への需要が高まっており、継続的なトレーニングとスキルアップの取り組みが必要とされます。</p>
+          <p class="para-jp-text">生産以外にも、業界は収益創出と廃棄物削減のための新たな道を模索しています。例えば、製材所の副産物からのバイオマスエネルギー生産や、木材ベースのバイオプラスチックや化学物質の開発にますます注目が集まっています。これらの取り組みは、従来の木材販売からの戦略的な多角化を表しており、新たな市場を創造し、不安定な住宅市場への依存を減らしています。</p>
         </details>
-      <p>Collaboration and co-creation are key to overcoming these hurdles. Machinery manufacturers, technology providers, and end-users are increasingly working together in innovation hubs to develop tailored solutions. This collaborative approach fosters faster adoption and the creation of new functionalities that address specific industry needs.</p>
+      <p>Government policies, including trade tariffs and environmental regulations, continue to play a significant role in shaping the industry's landscape. While some tariffs aim to protect domestic producers, they can also disrupt international supply chains and increase material costs. Industry leaders are therefore advocating for stable, predictable trade policies that foster rather than hinder global timber trade.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">コラボレーションと共同創造は、これらのハードルを克服するには鍵となります。機械メーカー、テクノロジープロバイダー、エンドユーザーは、特定の業界のニーズに対応するカスタマイズされたソリューションを開発するために、イノベーションハブで協力することが増えています。この協力的なアプローチは、より迅速な導入と、新しい機能の創造を促進します。</p>
+          <p class="para-jp-text">貿易関税や環境規制を含む政府の政策は、引き続き業界の状況を形成する上で重要な役割を果たしています。一部の関税は国内生産者を保護することを目的としていますが、国際的なサプライチェーンを混乱させ、材料費を増加させる可能性もあります。したがって、業界のリーダーは、世界の木材貿易を妨げるのではなく育成する、安定した予測可能な貿易政策を提唱しています。</p>
         </details>
-      <p>As industrial machinery becomes more intelligent and autonomous, the sector anticipates further enhancements in safety, sustainability, and flexibility. The ongoing IoT and AI revolution is set to redefine manufacturing standards, promising a future where production processes are not just efficient but also remarkably adaptive and resilient.</p>
+      <p>Ultimately, the future of the timber industry hinges on its capacity for innovation and adaptation. Companies that are willing to invest in new technologies, explore value-added products, and reconfigure their business models are better positioned to weather economic storms and thrive in an evolving global marketplace. This period of challenge may well catalyze a more resilient and sustainable timber sector in the long run.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">産業機械がよりインテリジェントで自律的になるにつれて、この分野は安全性、持続可能性、柔軟性のさらなる向上を期待しています。進行中のIoTとAI革命は、製造基準を再定義し、生産プロセスが効率的であるだけでなく、驚くほど適応性があり、回復力がある未来を約束します。</p>
+          <p class="para-jp-text">最終的に、木材産業の未来は、その革新と適応能力にかかっています。新しい技術に投資し、付加価値の高い製品を探求し、ビジネスモデルを再構成する意欲のある企業は、経済的な困難を乗り越え、進化するグローバル市場で成功する可能性が高まります。この困難な時期は、長期的により回復力のある持続可能な木材セクターを活性化するかもしれません。</p>
         </details>
+      </div>
     </div>
-  </div>
 
-  <!-- Exercise 3: Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 3</div>
-    <div class="section-title">Discussion</div>
-    <div class="section-title-jp">ディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>Has your industry experienced significant economic headwinds recently, and if so, how has your company adapted?</li>
+      <li>Do you think diversifying a company's product line is a more effective strategy than focusing on a niche market?</li>
+      <li>Have you ever seen a company or industry undergo a major consolidation, and what were the effects on the employees or market?</li>
+      <li>How do you personally feel about the balance between protecting domestic industries with tariffs and fostering free international trade?</li>
+      <li>If you were leading a company in a struggling industry, what innovative changes would you prioritize to ensure its long-term survival?</li>
+      </ol>
     </div>
-    <ol class="question-list">
-            <li>Have you ever used or interacted with a product or system that you know uses IoT or AI technology? What was your experience like?</li>
-      <li>In your current or past work environment, what tasks do you think could benefit most from automation, and what would be the biggest challenges in implementing it?</li>
-      <li>When you think about the future of manufacturing or any industry, what aspects of automation or AI excite you the most, and what concerns you?</li>
-      <li>Do you believe that technologies like predictive maintenance will completely replace human roles in maintenance, or will it create new types of jobs?</li>
-      <li>If you had the opportunity to implement a new smart technology in your workplace or daily life, what problem would you try to solve, and how would you approach it?</li>
-    </ol>
-  </div>
 
-  <!-- Exercise 4: Further Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 4</div>
-    <div class="section-title">Further Discussion</div>
-    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>What global economic factors do you think will have the biggest impact on various industries over the next decade?</li>
+      <li>Do you believe that larger companies acquiring smaller ones generally benefits or harms consumers in the long run?</li>
+      <li>How important is government intervention (e.g., subsidies, regulations) in helping industries adapt to global changes?</li>
+      <li>In what ways can a country build economic resilience to better withstand future shocks and uncertainties?</li>
+      <li>Do you think society places enough value on sustainable practices in industry, or is short-term profit still the dominant driver?</li>
+      </ol>
     </div>
-    <ol class="question-list">
-            <li>How do you think societies can prepare their workforces for a future where many traditional jobs might be automated or augmented by AI?</li>
-      <li>What ethical considerations do you think are most important when developing and deploying advanced AI and automation systems in critical industries?</li>
-      <li>Do you see a future where most, if not all, industrial operations are fully autonomous? What are the implications of such a scenario?</li>
-      <li>How important is data privacy and security in an increasingly interconnected world, especially when sensitive industrial data is being collected and analyzed?</li>
-      <li>Beyond industry, in what areas of daily life do you think IoT and AI will have the most significant positive impact in the next decade?</li>
-    </ol>
-  </div>
 
-  <!-- Lesson Notes -->
-  <div class="notes-section">
-    <div class="section-label">Lesson Notes</div>
-    <div class="section-title">レッスンノート</div>
-    <p style="font-size:14px;color:#666;margin-bottom:12px;">
-      先生からのフィードバックや自分の気づきをメモしましょう。自動保存されます。
-    </p>
-    <textarea class="notes-area" id="myNotes" placeholder="例: 発音を直された単語、新しい表現、次回までの課題など..."></textarea>
-    <div class="notes-saved" id="notesSaved">保存しました ✓</div>
-
-    <a class="collab-btn" id="collabBtn" href="#" target="_blank">
-      共同ノートを開く（先生と共有）
-    </a>
-    <div class="collab-hint">
-      登録不要。リンクをDMMのチャットに貼るだけで先生もタイプできます。<br>
-      レッスン中に先生が気になったポイントを書き込んでもらえます。
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
     </div>
   </div>
 
-  <div class="footer">
-    <p>Generated by OIN Daily English News System</p>
-    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
+    </div>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
+    </div>
+
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" id="collabBtn" href="#" target="_blank">
+        共同ノートを開く
+      </a>
+      <div class="collab-hint">
+        登録不要。このリンクをDMMチャットに貼るだけで先生もタイプできます。
+      </div>
+      <div class="collab-link-box" id="collabLinkBox">
+        <span>URL: </span><a id="collabLinkText" href="#" target="_blank"></a>
+        <br>
+        <button class="copy-btn" id="copyBtn">URLをコピー</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -592,7 +552,6 @@
   const notesArea = document.getElementById('myNotes');
   const notesSaved = document.getElementById('notesSaved');
 
-  // 保存済みノートを読み込み
   const saved = localStorage.getItem(NOTES_KEY);
   if (saved) notesArea.value = saved;
 
@@ -606,18 +565,31 @@
     }, 500);
   });
 
-  // 共同ノート（CryptPad — 登録不要）
-  const lessonId = '2026-03-24_lesson-2'.replace(/[^a-zA-Z0-9-]/g, '');
-  const collabUrl = `https://cryptpad.fr/pad/#/2/pad/edit/${btoa(lessonId + '-' + Date.now()).replace(/=/g, '').slice(0, 32)}/`;
-
-  // 共同ノートリンクを一度だけ生成してLocalStorageに保存
+  // 共同ノート（Etherpad — 登録不要）
   const COLLAB_KEY = 'oin_collab_2026-03-24_lesson-2';
   let collabLink = localStorage.getItem(COLLAB_KEY);
   if (!collabLink) {
-    collabLink = `https://cryptpad.fr/pad/#/2/pad/edit/${Array.from(crypto.getRandomValues(new Uint8Array(24))).map(b=>b.toString(36)).join('').slice(0,32)}/`;
+    // レッスンIDからユニークなパッド名を生成
+    const padName = 'oin-2026-03-24_lesson-2-' + Math.random().toString(36).slice(2, 10);
+    collabLink = 'https://etherpad.wikimedia.org/p/' + padName;
     localStorage.setItem(COLLAB_KEY, collabLink);
   }
-  document.getElementById('collabBtn').href = collabLink;
+
+  const collabBtn = document.getElementById('collabBtn');
+  const collabLinkBox = document.getElementById('collabLinkBox');
+  const collabLinkText = document.getElementById('collabLinkText');
+
+  collabBtn.href = collabLink;
+  collabLinkText.href = collabLink;
+  collabLinkText.textContent = collabLink;
+  collabLinkBox.style.display = 'block';
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(collabLink).then(() => {
+      document.getElementById('copyBtn').textContent = 'コピーしました ✓';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'URLをコピー', 2000);
+    });
+  });
 </script>
 </body>
 </html>

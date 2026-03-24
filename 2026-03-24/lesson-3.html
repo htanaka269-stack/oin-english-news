@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navigating Volatility: Key Trends in the Global Timber Market | OIN Daily English News</title>
+<title>Automation and AI Drive Efficiency in Forestry and Timber Processing | OIN Daily English News</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -19,249 +19,243 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
-  .header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  .header .nav {
-    margin-left: auto;
-    font-size: 14px;
-  }
-  .header .nav a {
-    color: #cde6cd;
-    text-decoration: none;
-    margin-left: 16px;
-  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
   .header .nav a:hover { color: #fff; }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 16px;
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
   }
-  .meta {
-    margin-bottom: 24px;
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
   }
-  .meta .breadcrumb {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 8px;
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
   }
-  .meta .breadcrumb a { color: #888; text-decoration: none; }
-  .meta h2 {
-    font-size: 28px;
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 8px;
+    color: #2c5f2d;
   }
-  .meta .date { font-size: 14px; color: #888; }
-  .level-badge {
-    display: inline-block;
-    background: #e67e22;
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
     color: #fff;
-    border-radius: 4px;
-    padding: 2px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 13px;
-    font-weight: 700;
-    margin-right: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
   }
-  .tag {
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
     display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 2px 10px;
-    font-size: 13px;
-    color: #666;
+    cursor: pointer;
+    color: #555;
   }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
   .section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
-  .section-label {
-    font-size: 14px;
-    color: #999;
-    margin-bottom: 4px;
-  }
-  .section-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .section-title-jp {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 16px;
-  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
   .instruction {
-    background: #f0f7e6;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
   }
   .instruction .jp { color: #666; font-size: 13px; }
 
   /* Vocabulary */
   .vocab-item {
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 12px;
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
   }
   .vocab-item:last-child { border-bottom: none; }
-  .vocab-word {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e67e22;
-  }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
   .vocab-pos {
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 1px 8px;
-    font-size: 12px;
-    color: #666;
-    margin-top: 4px;
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
   }
-  .vocab-jp {
-    font-size: 14px;
-    color: #666;
-    margin-top: 4px;
-  }
-  .vocab-phonetic {
-    color: #e67e22;
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-  .vocab-def {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 12px;
-  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
   .vocab-example {
-    background: #fafafa;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 15px;
-    line-height: 1.7;
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
   }
   .vocab-example b { font-weight: 700; }
-  .vocab-example .jp {
-    display: block;
-    font-size: 13px;
-    color: #888;
-    margin-top: 4px;
-  }
-  .vocab-word-jp {
-    font-size: 15px;
-    color: #444;
-    font-weight: 600;
-    margin-top: 2px;
-  }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
 
   /* Article */
-  .article-body {
-    font-size: 16px;
-    line-height: 2;
-  }
+  .article-body { font-size: 16px; line-height: 2; }
   .article-body p { margin-bottom: 4px; }
-
-  /* Paragraph-level JP toggle */
-  .para-jp {
-    margin-bottom: 16px;
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
   }
-  .para-jp summary {
-    cursor: pointer;
-    font-size: 12px;
-    color: #999;
-    user-select: none;
-    margin-bottom: 4px;
-  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
   .para-jp summary:hover { color: #e67e22; }
   .para-jp-text {
-    background: #fdf8f0;
-    border-left: 3px solid #e67e22;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-  .article-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #2c5f2d;
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
   }
 
   /* Questions */
-  .question-list {
-    list-style: none;
-    counter-reset: q;
-  }
+  .question-list { list-style: none; counter-reset: q; }
   .question-list li {
-    counter-increment: q;
-    padding: 16px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
   }
   .question-list li:last-child { border-bottom: none; }
-  .question-list li::before {
-    content: counter(q) ".";
-    font-weight: 700;
-    color: #2c5f2d;
-    margin-right: 8px;
-  }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
 
   /* Footer */
   .footer {
-    text-align: center;
-    padding: 24px;
-    font-size: 13px;
-    color: #999;
-    border-top: 1px solid #eee;
-    margin-top: 32px;
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
   }
   .footer a { color: #2c5f2d; text-decoration: none; }
 
-  /* Toggle translation */
-  .toggle-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .toggle-switch {
-    position: relative;
-    width: 44px;
-    height: 24px;
-  }
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
   .toggle-switch input { opacity: 0; width: 0; height: 0; }
   .toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background: #ccc;
-    border-radius: 24px;
-    transition: .3s;
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
   }
   .toggle-slider::before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background: #fff;
-    border-radius: 50%;
-    transition: .3s;
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
   }
   .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
   .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
@@ -270,57 +264,14 @@
   body.show-jp .vocab-jp { display: block; }
   .toggle-label { font-size: 14px; color: #666; }
 
-  /* Lesson Notes */
-  .notes-section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  }
-  .notes-section .section-title { margin-bottom: 16px; }
-  .notes-area {
-    width: 100%;
-    min-height: 120px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 12px;
-    font-size: 14px;
-    font-family: inherit;
-    line-height: 1.7;
-    resize: vertical;
-  }
-  .notes-area:focus { outline: none; border-color: #2c5f2d; }
-  .notes-saved {
-    font-size: 12px;
-    color: #999;
-    margin-top: 6px;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .notes-saved.show { opacity: 1; }
-  .collab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 16px;
-    padding: 10px 20px;
-    background: #2c5f2d;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .collab-btn:hover { background: #3a7a3b; }
-  .collab-hint {
-    font-size: 12px;
-    color: #999;
-    margin-top: 8px;
-    line-height: 1.5;
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
   }
 </style>
 </head>
@@ -332,252 +283,261 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="meta">
-    <div class="breadcrumb">
-      <a href="index.html">OIN English</a> / Lessons / Daily News
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Automation and AI Drive Efficiency in Forestry and Timber Processing</h2>
+      <div class="date">2026年03月24日（火）</div>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Manufacturing & Machinery</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
     </div>
-    <h2>Navigating Volatility: Key Trends in the Global Timber Market</h2>
-    <div class="date">2026年03月24日（火）</div>
-    <div style="margin-top:8px">
-      <span class="level-badge">8</span>
-      <span class="level-badge" style="background:#555">TOEIC 900</span>
-      <span class="tag">Trade & Markets</span>
-    </div>
-    <div class="toggle-wrap" style="margin-top:12px">
-      <label class="toggle-switch">
-        <input type="checkbox" id="jpToggle" checked>
-        <span class="toggle-slider"></span>
-      </label>
-      <span class="toggle-label">翻訳を表示</span>
-    </div>
-  </div>
 
-  <!-- Exercise 1: Vocabulary -->
-  <div class="section">
-    <div class="section-label">Exercise 1</div>
-    <div class="section-title">Vocabulary</div>
-    <div class="section-title-jp">ボキャブラリー</div>
-    <div class="instruction">
-      Repeat each word, definition, and example sentence after your tutor.
-      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
-    </div>
-    
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Volatility</div>
+        <div class="vocab-word">automation</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">変動性</div>
+        <div class="vocab-word-jp jp-text">自動化</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˌvɒləˈtɪləti/</div>
-        <div class="vocab-def">The quality of being subject to rapid or unpredictable change, especially in prices or market conditions.</div>
+        <div class="vocab-phonetic">/ˌɔːtəˈmeɪʃən/</div>
+        <div class="vocab-def">The use of largely automatic equipment in a system of manufacturing or other production process.</div>
         <div class="vocab-example">
-          The recent geopolitical events introduced significant <b>volatility</b> into global energy markets.
-          <span class="jp jp-text">最近の地政学的な出来事は、世界のエネルギー市場に大きな変動性をもたらした。</span>
+          Increased <b>automation</b> in the factory led to higher production rates.
+          <span class="jp jp-text">工場における自動化の増加は、より高い生産率につながった。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Supply Chain</div>
+        <div class="vocab-word">optimization</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">サプライチェーン</div>
+        <div class="vocab-word-jp jp-text">最適化</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/səˈplaɪ tʃeɪn/</div>
-        <div class="vocab-def">The sequence of processes involved in the production and distribution of a commodity, from raw materials to the final consumer.</div>
+        <div class="vocab-phonetic">/ˌɒptɪmaɪˈzeɪʃən/</div>
+        <div class="vocab-def">The action of making the best or most effective use of a situation or resource.</div>
         <div class="vocab-example">
-          Optimizing the <b>supply chain</b> is crucial for reducing costs and improving delivery times.
-          <span class="jp jp-text">サプライチェーンの最適化は、コスト削減と納期短縮にとって極めて重要である。</span>
+          Data analytics allowed for the <b>optimization</b> of energy consumption in the facility.
+          <span class="jp jp-text">データ分析により、施設のエネルギー消費量の最適化が可能になった。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Procurement</div>
+        <div class="vocab-word">teleoperation</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">調達</div>
+        <div class="vocab-word-jp jp-text">遠隔操作</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/prəˈkjʊrmənt/</div>
-        <div class="vocab-def">The process of obtaining goods or services, especially for business purposes, from external sources.</div>
+        <div class="vocab-phonetic">/ˌtɛliˌɒpəˈreɪʃən/</div>
+        <div class="vocab-def">The operation of a machine or system from a distance.</div>
         <div class="vocab-example">
-          The company improved its <b>procurement</b> strategy to secure more sustainable raw materials.
-          <span class="jp jp-text">その会社は、より持続可能な原材料を確保するために調達戦略を改善した。</span>
+          <b>Teleoperation</b> of heavy machinery improves safety in hazardous environments.
+          <span class="jp jp-text">危険な環境での重機の遠隔操作は、安全性を向上させる。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Downturn</div>
-        <div class="vocab-pos">noun</div>
-        <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">景気後退</div>
+        <div class="vocab-word">predictive maintenance</div>
+        <div class="vocab-pos">noun phrase</div>
+        <div class="vocab-jp jp-text">名詞句</div>
+        <div class="vocab-word-jp jp-text">予知保全</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˈdaʊntɜːrn/</div>
-        <div class="vocab-def">A decline in economic activity or a period of reduced business activity, often marked by decreased production and employment.</div>
+        <div class="vocab-phonetic">/prɪˈdɪktɪv ˈmeɪntənəns/</div>
+        <div class="vocab-def">A technique that uses data analysis to predict when equipment failure might occur, allowing maintenance to be scheduled proactively.</div>
         <div class="vocab-example">
-          The housing market experienced a significant <b>downturn</b>, impacting timber demand.
-          <span class="jp jp-text">住宅市場は大幅な景気後退に見舞われ、木材需要に影響を与えた。</span>
+          <b>Predictive maintenance</b> systems reduce unexpected downtimes and repair costs.
+          <span class="jp jp-text">予知保全システムは、予期せぬ停止時間と修理費用を削減する。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Resilience</div>
+        <div class="vocab-word">integration</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">回復力</div>
+        <div class="vocab-word-jp jp-text">統合</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/rɪˈzɪliəns/</div>
-        <div class="vocab-def">The capacity to recover quickly from difficulties; toughness or adaptability.</div>
+        <div class="vocab-phonetic">/ˌɪntɪˈɡreɪʃən/</div>
+        <div class="vocab-def">The act or process of combining two or more things in an effective way.</div>
         <div class="vocab-example">
-          Building <b>resilience</b> into the supply chain is essential to withstand future disruptions.
-          <span class="jp jp-text">将来の混乱に耐えるためには、サプライチェーンに回復力を構築することが不可欠である。</span>
+          The smooth <b>integration</b> of new software with existing systems is crucial for productivity.
+          <span class="jp jp-text">新しいソフトウェアと既存システムの円滑な統合は、生産性にとって極めて重要である。</span>
         </div>
       </div>
     </div>
 
     <div class="vocab-item">
       <div>
-        <div class="vocab-word">Tariff</div>
+        <div class="vocab-word">upskilling</div>
         <div class="vocab-pos">noun</div>
         <div class="vocab-jp jp-text">名詞</div>
-        <div class="vocab-word-jp jp-text">関税</div>
+        <div class="vocab-word-jp jp-text">スキルアップ、能力向上</div>
       </div>
       <div>
-        <div class="vocab-phonetic">/ˈtærɪf/</div>
-        <div class="vocab-def">A tax or duty to be paid on a particular class of imports or exports.</div>
+        <div class="vocab-phonetic">/ˈʌpskɪlɪŋ/</div>
+        <div class="vocab-def">The process of teaching employees new skills, usually to enable them to do their job better or to prepare them for new roles.</div>
         <div class="vocab-example">
-          The imposition of new <b>tariffs</b> on imported lumber caused prices to rise domestically.
-          <span class="jp jp-text">輸入木材に対する新たな関税の賦課は、国内価格の上昇を引き起こした。</span>
+          The company invested in <b>upskilling</b> its workforce to handle advanced automated systems.
+          <span class="jp jp-text">その会社は、高度な自動システムに対応できるよう、従業員のスキルアップに投資した。</span>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Exercise 2: Article -->
-  <div class="section">
-    <div class="section-label">Exercise 2</div>
-    <div class="section-title">Article</div>
-    <div class="section-title-jp">ニュース記事</div>
-    <div class="instruction">
-      Read the article aloud on your own or repeat each paragraph after your tutor.
-      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
     </div>
-    <div class="article-body">
-      <div class="article-title">Navigating Volatility: Key Trends in the Global Timber Market</div>
-            <p>The global timber market is currently experiencing a period of significant volatility, presenting both opportunities and challenges for industry players worldwide. Factors ranging from geopolitical shifts to domestic economic trends are influencing lumber prices and availability, compelling businesses to adapt their strategies.</p>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Automation and AI Drive Efficiency in Forestry and Timber Processing</div>
+              <p>The forestry and timber processing industries are undergoing a profound transformation driven by rapid advancements in automation and artificial intelligence (AI). Once characterized by manual labor and heavy machinery, these sectors are now embracing cutting-edge technologies to enhance efficiency, safety, and sustainability throughout the entire value chain, from forest to finished product.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">世界の木材市場は現在、大きな変動期にあり、世界中の業界関係者にとって機会と課題の両方をもたらしています。地政学的な変化から国内経済のトレンドに至るまで、さまざまな要因が木材価格と供給に影響を与え、企業は戦略の適応を余儀なくされています。</p>
+          <p class="para-jp-text">林業および木材加工産業は、自動化と人工知能（AI）の急速な進歩によって、大きな変革期を迎えています。かつては手作業と重機が特徴だったこれらの分野は、森林から最終製品までのバリューチェーン全体で効率、安全性、持続可能性を高めるために、最先端技術を導入しています。</p>
         </details>
-      <p>Notably, prices for North American timber, a key commodity in global construction, have recently seen a decline after several quarters of robust growth. This downturn is partly attributed to a softening in housing demand in major importing nations, alongside increased inventory levels and more stable production capacities in exporting regions.</p>
+      <p>In the forest, smart harvesting equipment is revolutionizing operations. Advanced sensors, GPS, and AI-powered algorithms enable machines to precisely identify trees, optimize cutting patterns to minimize waste, and even assess timber quality on the fly. This level of precision not only increases yield but also significantly reduces the environmental impact by ensuring more efficient resource utilization.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">特に、世界の建設における主要商品である北米産木材の価格は、数四半期にわたる力強い成長の後、最近下落しています。この景気後退は、主要な輸入国における住宅需要の軟化、在庫水準の増加、輸出地域における生産能力の安定化に部分的に起因しています。</p>
+          <p class="para-jp-text">森林では、スマートな伐採機器が作業を革新しています。高度なセンサー、GPS、AI搭載アルゴリズムにより、機械は木材を正確に識別し、伐採パターンを最適化して無駄を最小限に抑え、さらにはその場で木材の品質を評価することができます。このレベルの精度は、収穫量を増やすだけでなく、より効率的な資源利用を確保することで環境への影響を大幅に削減します。</p>
         </details>
-      <p>For countries heavily reliant on imported lumber, such as Japan, these price fluctuations can create considerable uncertainty for the construction sector. Builders and developers face challenges in forecasting costs and managing budgets, potentially impacting project timelines and overall investment in new housing and infrastructure.</p>
+      <p>Further along the supply chain, sawmills are becoming highly automated hubs. Robotics handle the laborious and repetitive tasks of sorting, debarking, and cutting logs with incredible speed and accuracy. AI systems analyze log dimensions and defects in real-time, dictating the optimal cutting strategies to maximize the production of high-value lumber while minimizing material loss.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">日本のように輸入木材に大きく依存している国にとって、これらの価格変動は建設部門にかなりの不確実性をもたらす可能性があります。建設業者や開発業者は、コスト予測と予算管理において課題に直面しており、新規住宅やインフラへのプロジェクト期間と全体的な投資に影響を与える可能性があります。</p>
+          <p class="para-jp-text">サプライチェーンのさらに下流では、製材所は高度に自動化されたハブになりつつあります。ロボットは、丸太の選別、樹皮剥ぎ、切断といった骨の折れる反復作業を驚くべき速度と精度で処理します。AIシステムは、丸太の寸法と欠陥をリアルタイムで分析し、材料の損失を最小限に抑えながら高価値の木材の生産を最大化するための最適な切断戦略を指示します。</p>
         </details>
-      <p>Beyond pricing, the intricate global supply chain for timber continues to be a focal point. Disruptions, whether from natural disasters, trade disputes, or logistical bottlenecks, can severely impact the timely procurement and delivery of wood products. This necessitates a strong emphasis on building supply chain resilience.</p>
+      <p>The integration of the Internet of Things (IoT) plays a crucial role in this digital revolution. Sensors embedded in machinery monitor performance, temperature, and vibration, feeding data into cloud-based platforms. This enables predictive maintenance, where potential equipment failures are identified and addressed before they cause costly downtime, ensuring continuous operation and extending machine lifespan.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">価格設定を超えて、木材の複雑なグローバルサプライチェーンは引き続き焦点となっています。自然災害、貿易紛争、物流のボトルネックなど、混乱は木材製品のタイムリーな調達と配送に深刻な影響を与える可能性があります。このため、サプライチェーンの回復力を構築することに重点を置く必要があります。</p>
+          <p class="para-jp-text">IoT（モノのインターネット）の統合は、このデジタル革命において重要な役割を果たしています。機械に組み込まれたセンサーは、性能、温度、振動を監視し、クラウドベースのプラットフォームにデータを供給します。これにより、予知保全が可能になり、潜在的な機器の故障をコストのかかるダウンタイムが発生する前に特定して対処し、継続的な稼働を確保し機械の寿命を延ばします。</p>
         </details>
-      <p>Consequently, many nations are increasingly looking inward, promoting the utilization of domestic timber resources. This strategy not only aims to reduce reliance on international markets but also supports local forestry industries, contributes to regional economies, and offers a more stable supply, albeit often at different price points.</p>
+      <p>Moreover, remote operation and teleoperation capabilities are gaining traction, particularly for heavy machinery in challenging or hazardous forest environments. Operators can control equipment from a safe distance, improving workplace safety and allowing for round-the-clock operations in some cases. This technological shift also opens up opportunities for a more diverse workforce, including individuals who might not have previously been able to work in physically demanding roles.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">結果として、多くの国は国内の木材資源の利用促進にますます目を向けています。この戦略は、国際市場への依存度を減らすだけでなく、地元の林業を支援し、地域経済に貢献し、異なる価格帯であってもより安定した供給を提供することを目指しています。</p>
+          <p class="para-jp-text">さらに、遠隔操作およびテレオペレーションの機能が注目を集めており、特に困難または危険な森林環境での重機に利用されています。作業員は安全な距離から機器を制御できるため、職場の安全性が向上し、場合によっては24時間体制での作業が可能になります。この技術的転換は、以前は肉体的に過酷な役割で働くことができなかった個人を含む、より多様な労働力のための機会も開きます。</p>
         </details>
-      <p>Industry stakeholders are also exploring innovative approaches to navigate market shifts. This includes diversifying their timber sources, investing in advanced processing technologies to maximize yield from available raw materials, and engaging in long-term supply agreements to mitigate price volatility.</p>
+      <p>While the adoption of these advanced technologies promises substantial benefits, it also necessitates a significant investment in infrastructure and human capital. Companies are focusing on upskilling their existing workforce to manage and operate complex automated systems, as well as attracting new talent with expertise in data science, robotics, and software engineering. The traditional skillset of a forestry worker is rapidly evolving.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">業界関係者は、市場の変化に対応するための革新的なアプローチも模索しています。これには、木材供給源の多様化、利用可能な原材料から最大の収益を得るための高度な加工技術への投資、価格変動を緩和するための長期供給契約の締結などが含まれます。</p>
+          <p class="para-jp-text">これらの先進技術の導入は大きな利益を約束する一方で、インフラと人的資本への多大な投資も必要とします。企業は、複雑な自動システムを管理・操作するために既存の労働力のスキルアップに注力するとともに、データサイエンス、ロボティクス、ソフトウェアエンジニアリングの専門知識を持つ新しい人材を惹きつけています。林業作業員の伝統的なスキルセットは急速に進化しています。</p>
         </details>
-      <p>Moreover, sustainability and ethical sourcing are becoming increasingly critical considerations. Consumers and regulations alike demand timber products that are responsibly harvested and certified. This trend influences procurement decisions and adds another layer of complexity to global trade dynamics.</p>
+      <p>The overarching goal of this technological push is to create a more resilient, productive, and environmentally responsible industry. By minimizing waste, optimizing resource allocation, and improving operational efficiency, automation and AI are helping the forestry and timber sectors meet growing global demand while adhering to stringent sustainability standards.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">さらに、持続可能性と倫理的な調達は、ますます重要な考慮事項となっています。消費者と規制の両方が、責任を持って収穫され、認証された木材製品を求めています。この傾向は調達決定に影響を与え、グローバルな貿易ダイナミクスに別の複雑さを加えています。</p>
+          <p class="para-jp-text">この技術推進の究極の目標は、より回復力があり、生産的で、環境的に責任のある産業を創造することです。無駄を最小限に抑え、資源配分を最適化し、運用効率を向上させることで、自動化とAIは、林業および木材セクターが厳格な持続可能性基準を遵守しながら、増大する世界の需要を満たすのに役立っています。</p>
         </details>
-      <p>As the global economy continues to evolve, the timber market will remain a dynamic landscape. Companies that prioritize adaptability, invest in supply chain resilience, and embrace sustainable practices will be best positioned to thrive amidst ongoing fluctuations and capitalize on emerging market opportunities.</p>
+      <p>As these technologies continue to mature, the collaboration between human expertise and intelligent machines will define the future of wood production. This era promises not only economic gains but also a renewed commitment to responsible forest management and the creation of innovative, sustainable timber products for a changing world.</p>
         <details class="para-jp">
           <summary>日本語訳を表示</summary>
-          <p class="para-jp-text">世界経済が進化し続けるにつれて、木材市場はダイナミックな状況を維持するでしょう。適応性を優先し、サプライチェーンの回復力に投資し、持続可能な慣行を取り入れる企業が、進行中の変動の中で繁栄し、新たな市場機会を活用するための最適な立場に立つでしょう。</p>
+          <p class="para-jp-text">これらの技術が成熟し続けるにつれて、人間の専門知識とインテリジェントな機械との協力が、木材生産の未来を決定づけるでしょう。この時代は、経済的利益だけでなく、責任ある森林管理への新たなコミットメントと、変化する世界のための革新的で持続可能な木材製品の創出を約束します。</p>
         </details>
+      </div>
     </div>
-  </div>
 
-  <!-- Exercise 3: Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 3</div>
-    <div class="section-title">Discussion</div>
-    <div class="section-title-jp">ディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>What aspects of your current job or industry do you think could benefit most from increased automation or AI integration?</li>
+      <li>Have you ever encountered a machine or system that was operated remotely or used advanced sensors, and what was your impression of it?</li>
+      <li>How do you feel about the idea of AI making critical decisions in complex industrial processes?</li>
+      <li>Do you think companies effectively invest in upskilling their employees when new technologies are introduced, or do they often struggle with this?</li>
+      <li>If you had the chance to design a new automated system for any industry, what problem would you choose to solve?</li>
+      </ol>
     </div>
-    <ol class="question-list">
-            <li>Have you ever noticed how global events or economic trends affect the prices of everyday goods or services you use? Can you give an example?</li>
-      <li>If you were a decision-maker in a company that relies on imported materials, how would you try to mitigate the risks of price volatility and supply chain disruptions?</li>
-      <li>Do you think it's more beneficial for a country to rely on domestic production for essential resources, or to participate fully in global trade? What are the pros and cons?</li>
-      <li>When considering a major purchase like a house or a car, how important is it for you to know the origin and ethical sourcing of its materials?</li>
-      <li>Have you ever experienced a situation where a supply chain disruption directly impacted you or your workplace? How did you manage it?</li>
-    </ol>
-  </div>
 
-  <!-- Exercise 4: Further Discussion -->
-  <div class="section">
-    <div class="section-label">Exercise 4</div>
-    <div class="section-title">Further Discussion</div>
-    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
-    <div class="instruction">
-      Have a discussion based on the following questions.
-      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>In what ways might the widespread adoption of AI and automation change the overall job market in your country?</li>
+      <li>Do you believe that technological advancements ultimately create more jobs than they eliminate, or vice versa?</li>
+      <li>What are the ethical considerations that society needs to address as AI becomes more prevalent in industries?</li>
+      <li>How do you think education systems need to adapt to prepare future generations for a workforce increasingly dominated by technology?</li>
+      <li>Beyond efficiency and cost savings, what other benefits or drawbacks do you foresee from a highly automated world?</li>
+      </ol>
     </div>
-    <ol class="question-list">
-            <li>What role do you believe international trade agreements play in stabilizing or destabilizing global commodity markets?</li>
-      <li>How can businesses best adapt to a rapidly changing global economy, especially with unexpected events like pandemics or geopolitical conflicts?</li>
-      <li>Do you think consumers have enough information to make truly sustainable purchasing decisions, or is more transparency needed from companies?</li>
-      <li>What long-term effects do you predict the increasing focus on sustainability will have on global trade and manufacturing practices?</li>
-      <li>If you could influence global economic policy, what measure would you propose to help industries better cope with market volatility?</li>
-    </ol>
-  </div>
 
-  <!-- Lesson Notes -->
-  <div class="notes-section">
-    <div class="section-label">Lesson Notes</div>
-    <div class="section-title">レッスンノート</div>
-    <p style="font-size:14px;color:#666;margin-bottom:12px;">
-      先生からのフィードバックや自分の気づきをメモしましょう。自動保存されます。
-    </p>
-    <textarea class="notes-area" id="myNotes" placeholder="例: 発音を直された単語、新しい表現、次回までの課題など..."></textarea>
-    <div class="notes-saved" id="notesSaved">保存しました ✓</div>
-
-    <a class="collab-btn" id="collabBtn" href="#" target="_blank">
-      共同ノートを開く（先生と共有）
-    </a>
-    <div class="collab-hint">
-      登録不要。リンクをDMMのチャットに貼るだけで先生もタイプできます。<br>
-      レッスン中に先生が気になったポイントを書き込んでもらえます。
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
     </div>
   </div>
 
-  <div class="footer">
-    <p>Generated by OIN Daily English News System</p>
-    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
+    </div>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
+    </div>
+
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" id="collabBtn" href="#" target="_blank">
+        共同ノートを開く
+      </a>
+      <div class="collab-hint">
+        登録不要。このリンクをDMMチャットに貼るだけで先生もタイプできます。
+      </div>
+      <div class="collab-link-box" id="collabLinkBox">
+        <span>URL: </span><a id="collabLinkText" href="#" target="_blank"></a>
+        <br>
+        <button class="copy-btn" id="copyBtn">URLをコピー</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -592,7 +552,6 @@
   const notesArea = document.getElementById('myNotes');
   const notesSaved = document.getElementById('notesSaved');
 
-  // 保存済みノートを読み込み
   const saved = localStorage.getItem(NOTES_KEY);
   if (saved) notesArea.value = saved;
 
@@ -606,18 +565,31 @@
     }, 500);
   });
 
-  // 共同ノート（CryptPad — 登録不要）
-  const lessonId = '2026-03-24_lesson-3'.replace(/[^a-zA-Z0-9-]/g, '');
-  const collabUrl = `https://cryptpad.fr/pad/#/2/pad/edit/${btoa(lessonId + '-' + Date.now()).replace(/=/g, '').slice(0, 32)}/`;
-
-  // 共同ノートリンクを一度だけ生成してLocalStorageに保存
+  // 共同ノート（Etherpad — 登録不要）
   const COLLAB_KEY = 'oin_collab_2026-03-24_lesson-3';
   let collabLink = localStorage.getItem(COLLAB_KEY);
   if (!collabLink) {
-    collabLink = `https://cryptpad.fr/pad/#/2/pad/edit/${Array.from(crypto.getRandomValues(new Uint8Array(24))).map(b=>b.toString(36)).join('').slice(0,32)}/`;
+    // レッスンIDからユニークなパッド名を生成
+    const padName = 'oin-2026-03-24_lesson-3-' + Math.random().toString(36).slice(2, 10);
+    collabLink = 'https://etherpad.wikimedia.org/p/' + padName;
     localStorage.setItem(COLLAB_KEY, collabLink);
   }
-  document.getElementById('collabBtn').href = collabLink;
+
+  const collabBtn = document.getElementById('collabBtn');
+  const collabLinkBox = document.getElementById('collabLinkBox');
+  const collabLinkText = document.getElementById('collabLinkText');
+
+  collabBtn.href = collabLink;
+  collabLinkText.href = collabLink;
+  collabLinkText.textContent = collabLink;
+  collabLinkBox.style.display = 'block';
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(collabLink).then(() => {
+      document.getElementById('copyBtn').textContent = 'コピーしました ✓';
+      setTimeout(() => document.getElementById('copyBtn').textContent = 'URLをコピー', 2000);
+    });
+  });
 </script>
 </body>
 </html>
