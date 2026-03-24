@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mass Timber: The Sustainable Future of Construction | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .header .nav {
+    margin-left: auto;
+    font-size: 14px;
+  }
+  .header .nav a {
+    color: #cde6cd;
+    text-decoration: none;
+    margin-left: 16px;
+  }
+  .header .nav a:hover { color: #fff; }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .meta {
+    margin-bottom: 24px;
+  }
+  .meta .breadcrumb {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    color: #666;
+  }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-title-jp {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  .instruction {
+    background: #f0f7e6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e67e22;
+  }
+  .vocab-pos {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1px 8px;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-jp {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-phonetic {
+    color: #e67e22;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .vocab-def {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  .vocab-example {
+    background: #fafafa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .vocab-word-jp {
+    font-size: 15px;
+    color: #444;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Article */
+  .article-body {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .article-body p { margin-bottom: 4px; }
+
+  /* Paragraph-level JP toggle */
+  .para-jp {
+    margin-bottom: 16px;
+  }
+  .para-jp summary {
+    cursor: pointer;
+    font-size: 12px;
+    color: #999;
+    user-select: none;
+    margin-bottom: 4px;
+  }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0;
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .article-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2c5f2d;
+  }
+
+  /* Questions */
+  .question-list {
+    list-style: none;
+    counter-reset: q;
+  }
+  .question-list li {
+    counter-increment: q;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before {
+    content: counter(q) ".";
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-right: 8px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle translation */
+  .toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #ccc;
+    border-radius: 24px;
+    transition: .3s;
+  }
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="meta">
+    <div class="breadcrumb">
+      <a href="index.html">OIN English</a> / Lessons / Daily News
+    </div>
+    <h2>Mass Timber: The Sustainable Future of Construction</h2>
+    <div class="date">2026年03月24日（火）</div>
+    <div style="margin-top:8px">
+      <span class="level-badge">8</span>
+      <span class="level-badge" style="background:#555">TOEIC 900</span>
+      <span class="tag">Construction & Housing</span>
+    </div>
+    <div class="toggle-wrap" style="margin-top:12px">
+      <label class="toggle-switch">
+        <input type="checkbox" id="jpToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="toggle-label">翻訳を表示</span>
+    </div>
+  </div>
+
+  <!-- Exercise 1: Vocabulary -->
+  <div class="section">
+    <div class="section-label">Exercise 1</div>
+    <div class="section-title">Vocabulary</div>
+    <div class="section-title-jp">ボキャブラリー</div>
+    <div class="instruction">
+      Repeat each word, definition, and example sentence after your tutor.
+      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+    </div>
+    
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">advocacy</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">擁護、支持</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈædvəkəsi/</div>
+        <div class="vocab-def">Public support for or recommendation of a particular cause or policy.</div>
+        <div class="vocab-example">
+          Environmental groups are engaged in strong <b>advocacy</b> for sustainable building materials.
+          <span class="jp jp-text">環境団体は持続可能な建築材料の強い擁護活動を行っている。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">conducive</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">貢献する、助けとなる</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/kənˈduːsɪv/</div>
+        <div class="vocab-def">Making a certain situation or outcome likely or possible.</div>
+        <div class="vocab-example">
+          The quiet environment is <b>conducive</b> to focused work and study.
+          <span class="jp jp-text">静かな環境は集中した仕事や勉強に役立つ。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">mitigation</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">緩和、軽減</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌmɪtɪˈɡeɪʃən/</div>
+        <div class="vocab-def">The action of reducing the severity, seriousness, or painfulness of something.</div>
+        <div class="vocab-example">
+          Climate change <b>mitigation</b> strategies include reducing carbon emissions.
+          <span class="jp jp-text">気候変動の緩和戦略には、炭素排出量の削減が含まれる。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">prefabrication</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">プレハブ化、事前製作</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌpriːfæbrɪˈkeɪʃən/</div>
+        <div class="vocab-def">The act of manufacturing sections of a structure or product at a factory and then transporting them to the construction site.</div>
+        <div class="vocab-example">
+          <b>Prefabrication</b> can significantly speed up construction timelines.
+          <span class="jp jp-text">プレハブ化は建設期間を大幅に短縮できる。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">resilience</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">回復力、弾力性</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/rɪˈzɪliəns/</div>
+        <div class="vocab-def">The capacity to recover quickly from difficulties; toughness.</div>
+        <div class="vocab-example">
+          The new building materials enhance the structure's <b>resilience</b> against natural disasters.
+          <span class="jp jp-text">新しい建材は、自然災害に対する構造物の回復力を高める。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">unprecedented</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">前例のない</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ʌnˈprɛsɪdɛntɪd/</div>
+        <div class="vocab-def">Never done or known before.</div>
+        <div class="vocab-example">
+          The industry is experiencing an <b>unprecedented</b> demand for eco-friendly products.
+          <span class="jp jp-text">この業界は環境に優しい製品に対して前例のない需要を経験している。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2: Article -->
+  <div class="section">
+    <div class="section-label">Exercise 2</div>
+    <div class="section-title">Article</div>
+    <div class="section-title-jp">ニュース記事</div>
+    <div class="instruction">
+      Read the article aloud on your own or repeat each paragraph after your tutor.
+      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+    </div>
+    <div class="article-body">
+      <div class="article-title">Mass Timber: The Sustainable Future of Construction</div>
+            <p>The global construction industry is witnessing a significant shift towards sustainable building practices, with mass timber emerging as a frontrunner. This innovative approach utilizes engineered wood products like Cross-Laminated Timber (CLT) to construct larger, taller, and more complex structures than previously imagined with wood.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">世界の建設業界は、持続可能な建築手法への大きな転換を目の当たりにしており、マスティンバーがその最前線に立っています。この革新的なアプローチは、集成材製品である直交集成板（CLT）を利用して、これまで木材では想像できなかったより大きく、より高く、より複雑な構造物を建設します。</p>
+        </details>
+      <p>CLT, in particular, involves laminating layers of lumber with the grain of each layer perpendicular to the next, creating panels with exceptional strength and stability. This technique transforms wood into a high-performance building material capable of rivaling concrete and steel in certain applications.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">特にCLTは、各層の木目が直交するように木材の層を積層することで、並外れた強度と安定性を持つパネルを作成します。この技術により、木材は特定の用途においてコンクリートや鉄骨に匹敵する高性能な建築材料へと変化します。</p>
+        </details>
+      <p>The adoption of mass timber is driven by its compelling environmental benefits. Wood is a renewable resource, and mass timber products act as carbon sinks, storing atmospheric carbon dioxide throughout their lifespan. This characteristic positions mass timber as a key component in climate change <b>mitigation</b> strategies for the built environment.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">マスティンバーの採用は、その魅力的な環境上の利点によって推進されています。木材は再生可能な資源であり、マスティンバー製品は炭素貯蔵庫として機能し、その寿命を通じて大気中の二酸化炭素を貯蔵します。この特性により、マスティンバーは建築環境における気候変動緩和戦略の重要な要素として位置づけられています。</p>
+        </details>
+      <p>Beyond its ecological advantages, mass timber construction offers practical benefits. The <b>prefabrication</b> of large timber panels off-site leads to faster assembly times, reduced on-site waste, and quieter construction sites, making it <b>conducive</b> to urban development projects.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">生態学的利点を超えて、マスティンバー建設は実用的な利点を提供します。大規模な木材パネルをオフサイトでプレハブ化することで、組み立て時間が短縮され、現場での廃棄物が減り、建設現場が静かになり、都市開発プロジェクトに適しています。</p>
+        </details>
+      <p>Recent projects showcase the versatility and growing acceptance of mass timber. From multi-story residential buildings to commercial complexes and educational facilities, designers are increasingly opting for mass timber solutions. This trend is not confined to specific regions but is gaining momentum globally, with notable examples in North America, Europe, and Asia.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">最近のプロジェクトは、マスティンバーの汎用性と受け入れの拡大を示しています。多層住宅から商業施設、教育施設まで、設計者はますますマスティンバーソリューションを選択しています。この傾向は特定の地域に限定されず、北米、ヨーロッパ、アジアなどで顕著な例が見られ、世界的に勢いを増しています。</p>
+        </details>
+      <p>Governments and industry associations are playing a crucial role in promoting mass timber through policy changes, research initiatives, and public <b>advocacy</b>. Revised building codes now accommodate taller timber structures, reflecting a deeper understanding of wood's fire <b>resilience</b> and structural integrity.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">政府や業界団体は、政策変更、研究イニシアチブ、および広報活動を通じて、マスティンバーの推進に重要な役割を果たしています。改訂された建築基準法は、木材の耐火性と構造的完全性に関するより深い理解を反映し、より高い木造建築物に対応できるようになりました。</p>
+        </details>
+      <p>Despite its promising trajectory, challenges remain, including initial cost perceptions and the need for a skilled workforce familiar with mass timber construction techniques. However, ongoing innovations in wood engineering and construction methods are rapidly addressing these concerns.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">その有望な軌道にもかかわらず、初期コストの認識や、マスティンバー建設技術に精通した熟練労働者の必要性など、課題は残っています。しかし、木材工学と建設方法における継続的な革新が、これらの懸念に迅速に対処しています。</p>
+        </details>
+      <p>The increasing integration of mass timber into mainstream construction signifies an <b>unprecedented</b> era for the forestry and building sectors. As demand for sustainable and efficient construction grows, mass timber is poised to redefine urban landscapes, offering environmentally responsible and aesthetically pleasing structures for future generations.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">マスティンバーが主流の建設にますます統合されることは、林業と建築部門にとって前例のない時代を意味します。持続可能で効率的な建設への需要が高まるにつれて、マスティンバーは都市景観を再定義し、将来の世代のために環境に責任があり、美的に魅力的な構造物を提供する態勢を整えています。</p>
+        </details>
+    </div>
+  </div>
+
+  <!-- Exercise 3: Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 3</div>
+    <div class="section-title">Discussion</div>
+    <div class="section-title-jp">ディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>When you think about the future of cities, what role do you imagine sustainable materials like mass timber playing?</li>
+      <li>Have you ever seen a building made with mass timber or CLT? What was your impression of it?</li>
+      <li>If you were involved in a construction project, would you advocate for using newer materials like mass timber, or do you prefer traditional methods?</li>
+      <li>What are some common misconceptions about wood construction that you think need to be addressed?</li>
+      <li>Do you believe consumers are willing to pay more for homes or buildings constructed with environmentally friendly materials?</li>
+    </ol>
+  </div>
+
+  <!-- Exercise 4: Further Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 4</div>
+    <div class="section-title">Further Discussion</div>
+    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>What do you think is the biggest challenge for industries trying to shift towards more sustainable practices?</li>
+      <li>How can governments effectively encourage the adoption of new, green technologies in established industries?</li>
+      <li>In your opinion, what makes a technology truly 'innovative' in today's fast-paced world?</li>
+      <li>Do you feel a personal responsibility to choose sustainable products, even if they are more expensive or less convenient?</li>
+      <li>Looking at your own industry, what kind of technological advancements do you foresee having the greatest impact in the next 10-20 years?</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Generated by OIN Daily English News System</p>
+    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigating the Volatile Global Timber Market: Challenges and Strategic Responses | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .header .nav {
+    margin-left: auto;
+    font-size: 14px;
+  }
+  .header .nav a {
+    color: #cde6cd;
+    text-decoration: none;
+    margin-left: 16px;
+  }
+  .header .nav a:hover { color: #fff; }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .meta {
+    margin-bottom: 24px;
+  }
+  .meta .breadcrumb {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    color: #666;
+  }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-title-jp {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  .instruction {
+    background: #f0f7e6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e67e22;
+  }
+  .vocab-pos {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1px 8px;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-jp {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-phonetic {
+    color: #e67e22;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .vocab-def {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  .vocab-example {
+    background: #fafafa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .vocab-word-jp {
+    font-size: 15px;
+    color: #444;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Article */
+  .article-body {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .article-body p { margin-bottom: 4px; }
+
+  /* Paragraph-level JP toggle */
+  .para-jp {
+    margin-bottom: 16px;
+  }
+  .para-jp summary {
+    cursor: pointer;
+    font-size: 12px;
+    color: #999;
+    user-select: none;
+    margin-bottom: 4px;
+  }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0;
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .article-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2c5f2d;
+  }
+
+  /* Questions */
+  .question-list {
+    list-style: none;
+    counter-reset: q;
+  }
+  .question-list li {
+    counter-increment: q;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before {
+    content: counter(q) ".";
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-right: 8px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle translation */
+  .toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #ccc;
+    border-radius: 24px;
+    transition: .3s;
+  }
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="meta">
+    <div class="breadcrumb">
+      <a href="index.html">OIN English</a> / Lessons / Daily News
+    </div>
+    <h2>Navigating the Volatile Global Timber Market: Challenges and Strategic Responses</h2>
+    <div class="date">2026年03月24日（火）</div>
+    <div style="margin-top:8px">
+      <span class="level-badge">8</span>
+      <span class="level-badge" style="background:#555">TOEIC 900</span>
+      <span class="tag">Trade & Markets</span>
+    </div>
+    <div class="toggle-wrap" style="margin-top:12px">
+      <label class="toggle-switch">
+        <input type="checkbox" id="jpToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="toggle-label">翻訳を表示</span>
+    </div>
+  </div>
+
+  <!-- Exercise 1: Vocabulary -->
+  <div class="section">
+    <div class="section-label">Exercise 1</div>
+    <div class="section-title">Vocabulary</div>
+    <div class="section-title-jp">ボキャブラリー</div>
+    <div class="instruction">
+      Repeat each word, definition, and example sentence after your tutor.
+      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+    </div>
+    
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">cyclical</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">循環的な</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈsaɪklɪkəl/</div>
+        <div class="vocab-def">Occurring in cycles; recurrent.</div>
+        <div class="vocab-example">
+          The housing market often experiences <b>cyclical</b> booms and busts.
+          <span class="jp jp-text">住宅市場はしばしば循環的な好況と不況を経験する。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">disruption</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">混乱、阻害</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/dɪsˈrʌpʃən/</div>
+        <div class="vocab-def">Disturbance or interruption of an event, process, or system.</div>
+        <div class="vocab-example">
+          Supply chain <b>disruption</b> caused delays in manufacturing.
+          <span class="jp jp-text">サプライチェーンの混乱が製造に遅延をもたらした。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">procurement</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">調達</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/prəˈkjʊrmənt/</div>
+        <div class="vocab-def">The process of obtaining goods or services, especially for business purposes.</div>
+        <div class="vocab-example">
+          The company improved its <b>procurement</b> process to reduce costs.
+          <span class="jp jp-text">その会社はコスト削減のために調達プロセスを改善した。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">reshoring</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">国内回帰</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈriːʃɔːrɪŋ/</div>
+        <div class="vocab-def">The practice of bringing manufacturing or production back to one's own country.</div>
+        <div class="vocab-example">
+          <b>Reshoring</b> initiatives aim to strengthen domestic supply chains.
+          <span class="jp jp-text">国内回帰の取り組みは、国内サプライチェーンの強化を目的としている。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">tariff</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">関税</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈtærɪf/</div>
+        <div class="vocab-def">A tax or duty to be paid on a particular class of imports or exports.</div>
+        <div class="vocab-example">
+          New trade agreements often involve adjustments to import <b>tariff</b> rates.
+          <span class="jp jp-text">新しい貿易協定には、輸入関税率の調整が含まれることが多い。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">volatility</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">変動性、不安定さ</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌvɒləˈtɪlɪti/</div>
+        <div class="vocab-def">The tendency of a market, currency, or price to change rapidly and unpredictably.</div>
+        <div class="vocab-example">
+          Investors are often concerned about market <b>volatility</b>.
+          <span class="jp jp-text">投資家はしばしば市場の変動性を懸念する。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2: Article -->
+  <div class="section">
+    <div class="section-label">Exercise 2</div>
+    <div class="section-title">Article</div>
+    <div class="section-title-jp">ニュース記事</div>
+    <div class="instruction">
+      Read the article aloud on your own or repeat each paragraph after your tutor.
+      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+    </div>
+    <div class="article-body">
+      <div class="article-title">Navigating the Volatile Global Timber Market: Challenges and Strategic Responses</div>
+            <p>The global timber market is currently experiencing significant <b>volatility</b>, marked by fluctuating prices and shifts in demand. After periods of unprecedented highs, particularly during the pandemic-driven housing boom, prices for key lumber products, such as North American softwood, have seen notable declines.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">世界の木材市場は現在、価格の変動と需要の変化によって特徴づけられる大きな変動性を経験しています。特にパンデミックに起因する住宅ブーム中の前例のない高値の期間を経て、北米産針葉樹などの主要木材製品の価格は顕著な下落を見せています。</p>
+        </details>
+      <p>This downturn, the first in nine quarters for some segments, reflects a cooling in residential construction demand in several major markets. High interest rates and inflation have impacted consumer purchasing power, leading to a slowdown in new home builds and renovation projects.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">一部のセグメントでは9四半期ぶりの下落となるこの景気後退は、いくつかの主要市場における住宅建設需要の冷え込みを反映しています。高金利とインフレは消費者の購買力に影響を与え、新規住宅建設やリノベーションプロジェクトの減速につながっています。</p>
+        </details>
+      <p>Beyond general economic factors, the industry also grapples with supply chain <b>disruption</b>. Geopolitical events, labor shortages, and logistical challenges continue to impact the smooth flow of timber from forest to processing mills and ultimately to construction sites.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">一般的な経済要因を超えて、業界はサプライチェーンの混乱にも取り組んでいます。地政学的イベント、労働力不足、ロジスティクスの課題が、森林から加工工場へ、そして最終的には建設現場への木材の円滑な流れに引き続き影響を与えています。</p>
+        </details>
+      <p>For many timber-producing regions, this market uncertainty presents a dual challenge: managing existing inventories while forecasting future demand accurately. Sawmills, in particular, face pressure to optimize their operations to remain competitive amidst thinner margins.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">多くの木材生産地域にとって、この市場の不確実性は二重の課題を提示します。既存の在庫を管理しつつ、将来の需要を正確に予測することです。特に製材所は、利益率が薄い中で競争力を維持するために、操業を最適化する圧力を受けています。</p>
+        </details>
+      <p>In response to these market dynamics, some industry players are focusing on innovation rather than relying solely on traditional trade measures like <b>tariff</b> adjustments. Investing in advanced wood processing technologies and developing higher-value timber products can offer greater stability and diversify revenue streams.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">こうした市場の動きに対応して、一部の業界関係者は、関税調整のような伝統的な貿易措置のみに頼るのではなく、イノベーションに焦点を当てています。高度な木材加工技術への投資と、より付加価値の高い木材製品の開発は、より大きな安定性を提供し、収益源を多様化することができます。</p>
+        </details>
+      <p>Strategic adjustments in <b>procurement</b> and logistics are also becoming critical. Companies are seeking to establish more resilient supply chains, potentially exploring domestic sourcing options or strengthening relationships with a wider range of international suppliers to mitigate risks associated with geographical concentration.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">調達と物流における戦略的な調整もまた、極めて重要になっています。企業はより回復力のあるサプライチェーンを構築しようとしており、地理的集中に関連するリスクを軽減するために、国内調達の選択肢を探ったり、より広範な国際サプライヤーとの関係を強化したりする可能性があります。</p>
+        </details>
+      <p>The push towards sustainability further complicates the market landscape. While consumer demand for eco-friendly building materials is growing, meeting certification requirements and ensuring responsible forestry practices add layers of complexity to timber production and trade.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">持続可能性への推進は、市場の状況をさらに複雑にしています。環境に優しい建築材料に対する消費者の需要は高まっていますが、認証要件を満たし、責任ある林業慣行を確保することは、木材生産と貿易にさらなる複雑さを加えています。</p>
+        </details>
+      <p>Ultimately, the timber industry must adapt to a new normal characterized by more rapid changes and heightened global interconnectedness. By embracing innovation, diversifying markets, and building robust supply networks, the sector can navigate its inherently <b>cyclical</b> nature and secure long-term growth.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">最終的に、木材業界は、より急速な変化と高まるグローバルな相互接続性によって特徴づけられるニューノーマルに適応しなければなりません。イノベーションを受け入れ、市場を多様化し、堅牢な供給ネットワークを構築することで、このセクターはその本質的に循環的な性質を乗り越え、長期的な成長を確保することができます。</p>
+        </details>
+    </div>
+  </div>
+
+  <!-- Exercise 3: Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 3</div>
+    <div class="section-title">Discussion</div>
+    <div class="section-title-jp">ディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>Have you ever noticed how global events or economic trends impact the prices of everyday goods you buy?</li>
+      <li>How do you think companies can best prepare for unexpected market volatility or supply chain disruptions?</li>
+      <li>When making purchasing decisions, how much do factors like price stability versus immediate availability influence you?</li>
+      <li>Do you believe consumers have a role in stabilizing markets through their purchasing habits, or is it primarily up to businesses and governments?</li>
+      <li>Have you ever experienced a situation where a shortage of a particular product significantly impacted your plans?</li>
+    </ol>
+  </div>
+
+  <!-- Exercise 4: Further Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 4</div>
+    <div class="section-title">Further Discussion</div>
+    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>In your opinion, what is the most important factor for a country's economic stability?</li>
+      <li>Do you think globalization makes economies more resilient or more vulnerable to international crises?</li>
+      <li>What responsibilities do governments have when industries within their country face severe economic challenges?</li>
+      <li>If you could offer advice to a young entrepreneur, what would you tell them about navigating uncertain economic times?</li>
+      <li>How important is it for individuals to have a basic understanding of global economic trends and market dynamics?</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Generated by OIN Daily English News System</p>
+    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+</script>
+</body>
+</html>

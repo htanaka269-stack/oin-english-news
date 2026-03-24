@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embracing Digital Transformation: AI and IoT Revolutionize Timber Processing | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .header .nav {
+    margin-left: auto;
+    font-size: 14px;
+  }
+  .header .nav a {
+    color: #cde6cd;
+    text-decoration: none;
+    margin-left: 16px;
+  }
+  .header .nav a:hover { color: #fff; }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .meta {
+    margin-bottom: 24px;
+  }
+  .meta .breadcrumb {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 13px;
+    color: #666;
+  }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-title-jp {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  .instruction {
+    background: #f0f7e6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e67e22;
+  }
+  .vocab-pos {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1px 8px;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-jp {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .vocab-phonetic {
+    color: #e67e22;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .vocab-def {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+  }
+  .vocab-example {
+    background: #fafafa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .vocab-word-jp {
+    font-size: 15px;
+    color: #444;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Article */
+  .article-body {
+    font-size: 16px;
+    line-height: 2;
+  }
+  .article-body p { margin-bottom: 4px; }
+
+  /* Paragraph-level JP toggle */
+  .para-jp {
+    margin-bottom: 16px;
+  }
+  .para-jp summary {
+    cursor: pointer;
+    font-size: 12px;
+    color: #999;
+    user-select: none;
+    margin-bottom: 4px;
+  }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0;
+    border-left: 3px solid #e67e22;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .article-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #2c5f2d;
+  }
+
+  /* Questions */
+  .question-list {
+    list-style: none;
+    counter-reset: q;
+  }
+  .question-list li {
+    counter-increment: q;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before {
+    content: counter(q) ".";
+    font-weight: 700;
+    color: #2c5f2d;
+    margin-right: 8px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle translation */
+  .toggle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #ccc;
+    border-radius: 24px;
+    transition: .3s;
+  }
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="meta">
+    <div class="breadcrumb">
+      <a href="index.html">OIN English</a> / Lessons / Daily News
+    </div>
+    <h2>Embracing Digital Transformation: AI and IoT Revolutionize Timber Processing</h2>
+    <div class="date">2026年03月24日（火）</div>
+    <div style="margin-top:8px">
+      <span class="level-badge">8</span>
+      <span class="level-badge" style="background:#555">TOEIC 900</span>
+      <span class="tag">Manufacturing & Machinery</span>
+    </div>
+    <div class="toggle-wrap" style="margin-top:12px">
+      <label class="toggle-switch">
+        <input type="checkbox" id="jpToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+      <span class="toggle-label">翻訳を表示</span>
+    </div>
+  </div>
+
+  <!-- Exercise 1: Vocabulary -->
+  <div class="section">
+    <div class="section-label">Exercise 1</div>
+    <div class="section-title">Vocabulary</div>
+    <div class="section-title-jp">ボキャブラリー</div>
+    <div class="instruction">
+      Repeat each word, definition, and example sentence after your tutor.
+      <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+    </div>
+    
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">optimization</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">最適化</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌɒptɪmaɪˈzeɪʃən/</div>
+        <div class="vocab-def">The act of making the best or most effective use of a situation or resource.</div>
+        <div class="vocab-example">
+          Data analytics led to significant process <b>optimization</b> in the factory.
+          <span class="jp jp-text">データ分析により、工場でのプロセス最適化が大幅に進んだ。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">predictive</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">予測的な</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/prɪˈdɪktɪv/</div>
+        <div class="vocab-def">Relating to or having the power to foretell the future.</div>
+        <div class="vocab-example">
+          <b>Predictive</b> maintenance systems help prevent costly equipment failures.
+          <span class="jp jp-text">予知保全システムは、費用のかかる機器の故障を防ぐのに役立つ。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">precision</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">精度、精密さ</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/prɪˈsɪʒən/</div>
+        <div class="vocab-def">The quality, condition, or fact of being exact and accurate.</div>
+        <div class="vocab-example">
+          Modern machinery allows for incredible <b>precision</b> in cutting and shaping wood.
+          <span class="jp jp-text">最新の機械は、木材の切断や成形において驚くべき精度を可能にする。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">retrofit</div>
+        <div class="vocab-pos">verb</div>
+        <div class="vocab-jp jp-text">動詞</div>
+        <div class="vocab-word-jp jp-text">後付けする、改修する</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈrɛtrəfɪt/</div>
+        <div class="vocab-def">To add a component or accessory to something that was not originally designed to have it.</div>
+        <div class="vocab-example">
+          Many older sawmills are looking to <b>retrofit</b> their existing equipment with IoT sensors.
+          <span class="jp jp-text">多くの古い製材所は、既存の設備にIoTセンサーを後付けすることを検討している。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">synergy</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">相乗効果</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈsɪnərˌdʒi/</div>
+        <div class="vocab-def">The interaction or cooperation of two or more organizations, substances, or other agents to produce a combined effect greater than the sum of their separate effects.</div>
+        <div class="vocab-example">
+          The <b>synergy</b> between AI and human expertise drives innovation in the industry.
+          <span class="jp jp-text">AIと人間の専門知識の相乗効果が、業界の革新を推進する。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">valorization</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">有効活用、価値向上</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌvæləraɪˈzeɪʃən/</div>
+        <div class="vocab-def">The process of increasing the value or utility of something, often by converting waste into useful products.</div>
+        <div class="vocab-example">
+          The complete <b>valorization</b> of wood waste is a key goal for sustainable sawmills.
+          <span class="jp jp-text">木材廃棄物の完全な有効活用は、持続可能な製材所の重要な目標である。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise 2: Article -->
+  <div class="section">
+    <div class="section-label">Exercise 2</div>
+    <div class="section-title">Article</div>
+    <div class="section-title-jp">ニュース記事</div>
+    <div class="instruction">
+      Read the article aloud on your own or repeat each paragraph after your tutor.
+      <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+    </div>
+    <div class="article-body">
+      <div class="article-title">Embracing Digital Transformation: AI and IoT Revolutionize Timber Processing</div>
+            <p>The timber processing industry, traditionally reliant on manual labor and heavy machinery, is undergoing a profound transformation. The integration of artificial intelligence (AI) and the Internet of Things (IoT) is ushering in an era of unprecedented efficiency, safety, and sustainability.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">伝統的に手作業と重機に依存してきた木材加工業界は、今、大きな変革期を迎えています。人工知能（AI）とモノのインターネット（IoT）の統合は、これまでにない効率、安全性、持続可能性の時代をもたらしています。</p>
+        </details>
+      <p>At the heart of this revolution are advanced sensor technologies and real-time data analytics. IoT sensors are now embedded throughout sawmills, monitoring everything from machinery performance and timber moisture levels to production line bottlenecks. This constant stream of data provides operators with crucial insights, enabling proactive decision-making.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">この革命の中心にあるのは、高度なセンサー技術とリアルタイムデータ分析です。IoTセンサーは現在、製材所全体に組み込まれており、機械の性能や木材の含水率から生産ラインのボトルネックまで、あらゆるものを監視しています。この絶え間ないデータストリームは、オペレーターに重要な洞察を提供し、プロアクティブな意思決定を可能にします。</p>
+        </details>
+      <p>AI algorithms are leveraging this vast amount of data to achieve remarkable results. For instance, AI-powered vision systems can analyze logs with incredible <b>precision</b>, identifying optimal cutting patterns to maximize yield and minimize waste, far surpassing human capabilities.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">AIアルゴリズムは、この膨大な量のデータを活用して、目覚ましい成果を上げています。例えば、AIを搭載した視覚システムは、丸太を驚くべき精度で分析し、最適な切断パターンを特定して歩留まりを最大化し、廃棄物を最小限に抑えることができ、人間の能力をはるかに超えています。</p>
+        </details>
+      <p>One of the most impactful applications is <b>predictive</b> maintenance. Instead of traditional time-based maintenance, AI models analyze machine data to predict potential failures before they occur. This allows sawmills to schedule maintenance only when necessary, drastically reducing downtime and extending the lifespan of valuable equipment.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">最も影響の大きいアプリケーションの一つが予知保全です。従来の時間ベースのメンテナンスではなく、AIモデルは機械データを分析して故障が発生する前に潜在的な故障を予測します。これにより、製材所は必要なときにのみメンテナンスをスケジュールすることができ、ダウンタイムを大幅に削減し、高価な設備の寿命を延ばすことができます。</p>
+        </details>
+      <p>Beyond the sawmill floor, AI and IoT are enhancing logistics and supply chain management. Real-time tracking of timber from forest to factory, coupled with AI-driven route <b>optimization</b>, ensures timely delivery and reduces transportation costs and carbon emissions.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">製材所のフロアを超えて、AIとIoTはロジスティクスとサプライチェーン管理を強化しています。森林から工場までの木材のリアルタイム追跡と、AI駆動のルート最適化が組み合わさることで、タイムリーな配送が保証され、輸送コストと炭素排出量が削減されます。</p>
+        </details>
+      <p>These digital advancements also contribute to a safer working environment. Automated systems reduce the need for human interaction with dangerous machinery, while IoT devices can monitor worker safety in remote forestry operations, alerting supervisors to potential hazards or emergencies.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">これらのデジタル化の進展は、より安全な作業環境にも貢献します。自動化されたシステムは危険な機械との人間の関わりを減らし、IoTデバイスは遠隔地の林業作業での作業員の安全を監視し、潜在的な危険や緊急事態を監督者に警告することができます。</p>
+        </details>
+      <p>While the upfront investment in these technologies can be substantial, the long-term benefits in terms of increased productivity, reduced operational costs, and enhanced resource <b>valorization</b> are compelling. Many companies are exploring options to <b>retrofit</b> existing machinery to capitalize on these innovations without full replacement.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">これらの技術への初期投資は相当なものとなる可能性がありますが、生産性の向上、運用コストの削減、資源の有効活用といった長期的な利点は魅力的です。多くの企業は、完全な交換なしにこれらのイノベーションを活用するために、既存の機械を改造することを検討しています。</p>
+        </details>
+      <p>The <b>synergy</b> between heavy machinery and intelligent digital systems is not just about incremental improvements; it represents a fundamental shift in how the timber industry operates. It empowers businesses to make smarter, more sustainable choices, securing a competitive edge in a rapidly evolving global market.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">重機とインテリジェントなデジタルシステムとの相乗効果は、単なる漸進的な改善にとどまらず、木材産業がどのように運営されるかという根本的な変化を示しています。これにより、企業はよりスマートで持続可能な選択を行い、急速に進化するグローバル市場で競争優位を確保することができます。</p>
+        </details>
+    </div>
+  </div>
+
+  <!-- Exercise 3: Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 3</div>
+    <div class="section-title">Discussion</div>
+    <div class="section-title-jp">ディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>How do you feel about the increasing use of AI and automation in traditional industries like timber processing?</li>
+      <li>Have you ever experienced a situation where technology improved safety in your workplace or daily life?</li>
+      <li>If you could implement one new technology in your company or industry, what would it be and why?</li>
+      <li>What are some potential downsides or challenges you see with relying heavily on AI for industrial operations?</li>
+      <li>Do you think younger generations are more prepared to embrace rapid technological changes in the workplace?</li>
+    </ol>
+  </div>
+
+  <!-- Exercise 4: Further Discussion -->
+  <div class="section">
+    <div class="section-label">Exercise 4</div>
+    <div class="section-title">Further Discussion</div>
+    <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+    <div class="instruction">
+      Have a discussion based on the following questions.
+      <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+    </div>
+    <ol class="question-list">
+            <li>How do you imagine daily life will change when AI and IoT become even more integrated into our homes and cities?</li>
+      <li>What ethical considerations do we need to address as AI technology becomes more sophisticated and autonomous?</li>
+      <li>Do you believe automation will ultimately create more jobs by fostering new industries, or will it lead to widespread job displacement?</li>
+      <li>How important is it for individuals to continuously learn new skills to adapt to a technologically evolving world?</li>
+      <li>If you could design a smart factory or office, what 'futuristic' features would you include to maximize efficiency and well-being?</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Generated by OIN Daily English News System</p>
+    <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+</script>
+</body>
+</html>

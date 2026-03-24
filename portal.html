@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OIN Daily English News - Article Library</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  .stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c5f2d;
+  }
+  .stat-card .label {
+    font-size: 13px;
+    color: #888;
+  }
+  .stat-card.done .num { color: #999; }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: #2c5f2d; color: #2c5f2d; }
+  .filter-btn.active {
+    background: #2c5f2d;
+    color: #fff;
+    border-color: #2c5f2d;
+  }
+
+  .article-list { list-style: none; }
+  .article-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: opacity 0.3s;
+  }
+  .article-item.hidden { display: none; }
+  .article-item.fading { opacity: 0; transform: translateX(30px); transition: all 0.4s; }
+
+  .article-info { flex: 1; }
+  .article-info a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+  }
+  .article-info a:hover { color: #2c5f2d; }
+  .article-meta {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .article-meta .cat {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 11px;
+  }
+
+  .action-btns {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .btn-done, .btn-skip {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-done {
+    background: #e8f5e9;
+    color: #2c5f2d;
+  }
+  .btn-done:hover { background: #c8e6c9; }
+  .btn-skip {
+    background: #f5f5f5;
+    color: #999;
+  }
+  .btn-skip:hover { background: #eee; color: #666; }
+
+  .show-all-wrap {
+    text-align: center;
+    margin-top: 16px;
+  }
+  .btn-show-all {
+    padding: 8px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    color: #888;
+  }
+  .btn-show-all:hover { border-color: #2c5f2d; color: #2c5f2d; }
+
+  .empty-msg {
+    text-align: center;
+    padding: 60px 20px;
+    color: #bbb;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+</div>
+<div class="container">
+  <div class="stats">
+    <div class="stat-card">
+      <div class="num" id="countUnread">0</div>
+      <div class="label">未読 Unread</div>
+    </div>
+    <div class="stat-card done">
+      <div class="num" id="countDone">0</div>
+      <div class="label">読了 Done</div>
+    </div>
+    <div class="stat-card done">
+      <div class="num" id="countSkipped">0</div>
+      <div class="label">スキップ Skipped</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" id="countTotal">0</div>
+      <div class="label">全記事 Total</div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="unread">未読のみ</button>
+    <button class="filter-btn" data-filter="all">全て表示</button>
+    <button class="filter-btn" data-filter="done">読了</button>
+    <button class="filter-btn" data-filter="skipped">スキップ済</button>
+  </div>
+
+  <ul class="article-list" id="articleList">
+    <!-- JS で動的に生成 -->
+  </ul>
+
+  <div class="empty-msg" id="emptyMsg" style="display:none;">
+    全ての記事を読みました！
+  </div>
+</div>
+
+<script>
+// ─── 記事データ（生成時に埋め込み） ───
+const ARTICLES = [{"id": "2026-03-24_lesson-1", "title": "Mass Timber: The Sustainable Future of Construction", "category": "Construction & Housing", "date": "2026年03月24日（火）", "url": "2026-03-24/lesson-1.html"}, {"id": "2026-03-24_lesson-2", "title": "Embracing Digital Transformation: AI and IoT Revolutionize Timber Processing", "category": "Manufacturing & Machinery", "date": "2026年03月24日（火）", "url": "2026-03-24/lesson-2.html"}, {"id": "2026-03-24_lesson-3", "title": "Navigating the Volatile Global Timber Market: Challenges and Strategic Responses", "category": "Trade & Markets", "date": "2026年03月24日（火）", "url": "2026-03-24/lesson-3.html"}, {"id": "2026-03-24_lesson-4", "title": "Global Demand Shifts: Investment and Export Focus in the Wood Pellet Industry", "category": "International Trade", "date": "2026年03月24日（火）", "url": "2026-03-24/lesson-4.html"}];
+
+// ─── LocalStorage 管理 ───
+const STORAGE_KEY = 'oin_news_status';
+
+function loadStatus() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveStatus(status) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(status));
+}
+
+function getArticleStatus(id) {
+  return loadStatus()[id] || 'unread';
+}
+
+function setArticleStatus(id, s) {
+  const status = loadStatus();
+  status[id] = s;
+  saveStatus(status);
+}
+
+// ─── フィルタ ───
+let currentFilter = 'unread';
+
+function updateCounts() {
+  const status = loadStatus();
+  let unread = 0, done = 0, skipped = 0;
+  ARTICLES.forEach(a => {
+    const s = status[a.id] || 'unread';
+    if (s === 'unread') unread++;
+    else if (s === 'done') done++;
+    else if (s === 'skipped') skipped++;
+  });
+  document.getElementById('countUnread').textContent = unread;
+  document.getElementById('countDone').textContent = done;
+  document.getElementById('countSkipped').textContent = skipped;
+  document.getElementById('countTotal').textContent = ARTICLES.length;
+
+  // 空メッセージ
+  const visible = document.querySelectorAll('.article-item:not(.hidden)');
+  document.getElementById('emptyMsg').style.display = visible.length === 0 ? '' : 'none';
+}
+
+function applyFilter() {
+  const status = loadStatus();
+  document.querySelectorAll('.article-item').forEach(el => {
+    const s = status[el.dataset.id] || 'unread';
+    if (currentFilter === 'all') {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.toggle('hidden', s !== currentFilter);
+    }
+  });
+  updateCounts();
+}
+
+// ─── レンダー ───
+function render() {
+  const list = document.getElementById('articleList');
+  list.innerHTML = '';
+
+  // 新しい順に
+  const sorted = [...ARTICLES].reverse();
+
+  sorted.forEach(a => {
+    const s = getArticleStatus(a.id);
+    const li = document.createElement('li');
+    li.className = 'article-item';
+    li.dataset.id = a.id;
+
+    li.innerHTML = `
+      <div class="article-info">
+        <a href="${a.url}" target="_blank">${a.title}</a>
+        <div class="article-meta">
+          <span>${a.date}</span>
+          <span class="cat">${a.category}</span>
+        </div>
+      </div>
+      <div class="action-btns">
+        <button class="btn-done" onclick="markDone('${a.id}', this)">読了 ✓</button>
+        <button class="btn-skip" onclick="markSkip('${a.id}', this)">スキップ ✕</button>
+      </div>
+    `;
+    list.appendChild(li);
+  });
+
+  applyFilter();
+}
+
+function markDone(id, btn) {
+  setArticleStatus(id, 'done');
+  fadeOut(btn.closest('.article-item'));
+}
+
+function markSkip(id, btn) {
+  setArticleStatus(id, 'skipped');
+  fadeOut(btn.closest('.article-item'));
+}
+
+function fadeOut(el) {
+  el.classList.add('fading');
+  setTimeout(() => {
+    applyFilter();
+    el.classList.remove('fading');
+  }, 400);
+}
+
+// ─── フィルタボタン ───
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilter();
+  });
+});
+
+render();
+</script>
+</body>
+</html>
