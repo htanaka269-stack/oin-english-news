@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amid Trump logging push, will Oregon enter new timber era? | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
+  .header .nav a:hover { color: #fff; }
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
+  }
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
+  }
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c5f2d;
+  }
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
+  }
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #555;
+  }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
+  .section {
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
+  .instruction {
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
+  .vocab-pos {
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
+  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
+  .vocab-example {
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* Article */
+  /* Source link */
+  .source-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #eef5ee; border: 1px solid #c5dfc5; border-radius: 6px;
+    padding: 8px 14px; margin-bottom: 16px; font-size: 13px;
+    color: #2c5f2d; text-decoration: none; transition: background 0.2s;
+  }
+  .source-link:hover { background: #d8ecd8; }
+  .source-link .source-icon { font-size: 16px; }
+  .source-domain { font-weight: 700; }
+
+  /* Vocabulary tooltip */
+  .vocab-tooltip {
+    border-bottom: 2px dotted #e67e22;
+    cursor: help;
+    position: relative;
+  }
+  .vocab-tooltip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+    width: max-content;
+    max-width: 320px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 50;
+  }
+  .vocab-tooltip:hover::after { opacity: 1; }
+
+  .article-body { font-size: 16px; line-height: 2; }
+  .article-body p { margin-bottom: 4px; }
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
+  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
+  }
+
+  /* Questions */
+  .question-list { list-style: none; counter-reset: q; }
+  .question-list li {
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
+  }
+  .toggle-slider::before {
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
+  }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Amid Trump logging push, will Oregon enter new timber era?</h2>
+      <div class="date">2026年03月26日（木）</div>
+      <a class="source-link" href="https://www.yahoo.com/news/articles/amid-trump-logging-push-oregon-110534890.html" target="_blank">
+        <span class="source-icon">📰</span>
+        Original article from <span class="source-domain">yahoo.com</span>
+      </a>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Forestry & Timber</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">fraught</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">困難を伴う、問題含みの</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/frɔːt/</div>
+        <div class="vocab-def">Causing or affected by great anxiety or difficulty.</div>
+        <div class="vocab-example">
+          The negotiations were <b>fraught</b> with difficulties from the start.
+          <span class="jp jp-text">交渉は最初から困難を伴った。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">ramp up</div>
+        <div class="vocab-pos">phrasal verb</div>
+        <div class="vocab-jp jp-text">句動詞</div>
+        <div class="vocab-word-jp jp-text">増強する、本格化させる</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ræmp ʌp/</div>
+        <div class="vocab-def">To increase the level or amount of something sharply.</div>
+        <div class="vocab-example">
+          The company decided to <b>ramp up</b> production to meet demand.
+          <span class="jp jp-text">その会社は需要を満たすために生産を増強することを決定した。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">catastrophic</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">壊滅的な、悲劇的な</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌkætəˈstrɒfɪk/</div>
+        <div class="vocab-def">Involving or causing sudden great damage or suffering.</div>
+        <div class="vocab-example">
+          The earthquake caused <b>catastrophic</b> damage to the city.
+          <span class="jp jp-text">その地震は都市に壊滅的な被害をもたらした。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">domestic</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">国内の</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/dəˈmɛstɪk/</div>
+        <div class="vocab-def">Of or relating to one's own country.</div>
+        <div class="vocab-example">
+          The government is focused on boosting <b>domestic</b> manufacturing.
+          <span class="jp jp-text">政府は国内製造業の振興に注力している。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">prosperity</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">繁栄、好景気</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/prɒˈspɛrəti/</div>
+        <div class="vocab-def">The state of being successful, usually by making a lot of money.</div>
+        <div class="vocab-example">
+          Economic <b>prosperity</b> leads to higher living standards.
+          <span class="jp jp-text">経済的な繁栄は生活水準の向上につながる。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">mass timber</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">大断面集成材（マスティンバー）</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/mæs ˈtɪmbər/</div>
+        <div class="vocab-def">A category of engineered wood products that can be used as structural elements in buildings, often involving large panelized or layered wood products.</div>
+        <div class="vocab-example">
+          <b>Mass timber</b> construction is gaining popularity due to its sustainability.
+          <span class="jp jp-text">マスティンバー建築はその持続可能性から人気を集めている。</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Amid Trump logging push, will Oregon enter new timber era?</div>
+              <p>Editor's note: In honor of the 250th anniversary of the signing of the Declaration of Independence, the Statesman Journal and its sister publication, The Register-Guard, are embarking on a yearlong project exploring the history and culture that define Oregon and shape the lives of its residents in the modern day.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">編集者注：独立宣言署名250周年を記念し、ステイツマン・ジャーナルとその姉妹紙レジスター・ガードは、オレゴンを定義し、現代の住民の生活を形作る歴史と文化を探求する1年間のプロジェクトに着手しています。</p>
+        </details>
+      <p>In Oregon, at least on the surface, the state’s connection to logging shows up everywhere you look.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">オレゴン州では、少なくとも表面的には、州と林業とのつながりは至るところで見られます。</p>
+        </details>
+      <p>Portland’s Major League Soccer team is called the Timbers and goals are celebrated with the roar of a chainsaw. Good coffee comes from a beloved brand called Stumptown. The Oregon Pioneer, a 23-foot gold-leaf statue atop the state Capitol, is holding an axe and standing above a stump. Even our state animal is best known for felling trees.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">ポートランドのメジャーリーグサッカーチームはティンバーズと呼ばれ、ゴールはチェーンソーの轟音とともに祝われます。おいしいコーヒーは、Stumptownという人気のブランドから来ています。州議会議事堂の頂上にある23フィートの金箔像「オレゴン・パイオニア」は、斧を持ち、切り株の上に立っています。私たちの州の動物でさえ、木を切り倒すことで最もよく知られています。</p>
+        </details>
+      <p>Advertisement Advertisement</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">もっと最近では、ポートランド国際空港の旅行者は、9エーカーの絡み合ったダグラスファーの梁でできた屋根の下で旅を始め、オレゴンホワイトオークの床を歩き、近くの森から伐採された木材で作られたベンチに座ります。これは、2024年にオープンした20億ドルの改築における誇りとなっています。</p>
+        </details>
+      <p>More recently, travelers at Portland International Airport begin their journey below a 9-acre roof of interlaced Douglas fir beams, walk across floors of Oregon white oak and sit on benches of wood harvested from nearby forests — a point of pride in the $2 billion renovation that opened in 2024.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">2025年8月2日、ポートランドのプロビデンス・パークで行われたポートランド・ティンバーズ対ケレタロの試合後、ティンバー・ジョーイが勝利の丸太の一部を切り取る様子。</p>
+        </details>
+      <p>Timber Joey cuts a piece of the victory log after a game between the Portland Timbers and Queretaro at Providence Park on Aug. 2, 2025, in Portland.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">しかし、これらすべての象徴にもかかわらず、オレゴン州の「木材の州」としてのアイデンティティは、半世紀にわたり困難を伴うものでした。どのくらい伐採すべきかをめぐる争いは1980年代から90年代を決定づけました。オレゴン州最後の原生林を救うための木材伐採の急激な減少は、今なおくすぶる都市と農村の分断を引き起こしました。</p>
+        </details>
+      <p>Yet for all the symbolism, Oregon’s identity as a timber state has been <span class="vocab-tooltip" data-tip="/frɔːt/  困難を伴う、問題含みの：Causing or affected by great anxiety or difficulty.">fraught</span> for a half-century. Fights over how much to cut defined the 1980s and '90s. Steep declines in timber harvest, meant to save Oregon’s last ancient forests, ripped an urban-rural divide that still festers.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">今日、オレゴン州は米国で最も多くの針葉樹材を生産しています。しかし、州の木材伐採量は歴史的な低水準で推移しており、2024年以降、少なくとも7つの製材所が閉鎖され、連邦所有地での伐採は制限されています。</p>
+        </details>
+      <p>Today, Oregon still produces the most softwood lumber in the United States. But the state’s timber harvest has hovered near historic lows, at least seven mills have closed since 2024 and logging on federal lands has been limited.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">ドナルド・トランプ大統領の政権は、それを変えたいと考えています。</p>
+        </details>
+      <p>President Donald Trump's administration wants to change that.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">一連の大統領令、法的措置、規制上の決定を通じて、政権は州全体で大規模な伐採を本格化させようとしています。250万エーカーの連邦森林で伐採レベルを4倍にする計画に関するパブリックコメントの募集は3月23日に終了します。</p>
+        </details>
+      <p>Advertisement Advertisement</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">デシューツ国有林での間伐作業。</p>
+        </details>
+      <p>Through a series of executive orders, legal moves and regulatory decisions, the administration is attempting to <span class="vocab-tooltip" data-tip="/ræmp ʌp/  増強する、本格化させる：To increase the level or amount of something sharply.">ramp up</span> logging in a major way across the state. Public comments on a plan to quadruple harvest levels on 2.5 million acres of federal forest ends on March 23.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「木材生産を歴史的な水準に戻すことは、地域経済を活性化し、壊滅的な山火事の脅威を軽減するために不可欠です」と、土地管理局長のビル・グロフィーは声明で述べました。「トランプ大統領は、国内の木材生産の強化が、国家安全保障、経済的繁栄、効果的な山火事管理にとって極めて重要であることを明確にしました。」</p>
+        </details>
+      <p>A forest thinning operation on the Deschutes National Forest.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">これらの動きは、オレゴン州の木材業界で慎重な楽観論をもって迎えられています。</p>
+        </details>
+      <p>“Bringing timber production back to historic levels is essential for reviving local economies and reducing the threat of <span class="vocab-tooltip" data-tip="/ˌkætəˈstrɒfɪk/  壊滅的な、悲劇的な：Involving or causing sudden great damage or suffering.">catastrophic</span> wildfires,” Bureau of Land Management Director Bill Groffy said in a statement. “President Trump has made it clear — enhanced <span class="vocab-tooltip" data-tip="/dəˈmɛstɪk/  国内の：Of or relating to one's own country.">domestic</span> timber production is vital for our national security, economic <span class="vocab-tooltip" data-tip="/prɒˈspɛrəti/  繁栄、好景気：The state of being successful, usually by making a lot of money.">prosperity</span> and effective wildfire management.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「これほど長い間希望を持ったことはありません」と、1922年からオレゴン州で木材を生産しているフレールズ・ランバー・カンパニーのタイラー・フレールズは語りました。「オレゴンの木材は米国をリードし、世界のどこでも競争できるはずです。私たちは30年間、本当に悪い森林政策を続けてきました。」</p>
+        </details>
+      <p>The moves have been met with cautious optimism in Oregon’s timber industry.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">一方、環境団体やアウトドア団体は、戦いの準備をしています。</p>
+        </details>
+      <p>“I’m more hopeful than I’ve been in a long time,” said Tyler Freres, whose family has produced timber in Oregon since 1922 at Freres Lumber Co. “Oregon timber should lead the United States and compete with anywhere in the world. We’ve had 30 years of really bad forest policy.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「オレゴン州民は、原生林を伐採する時代に戻ることを望んでいないと非常に明確にしています」と、環境団体オレゴン・ワイルドの長年の保護ディレクターであるスティーブ・ペデリーは述べました。</p>
+        </details>
+      <p>Advertisement Advertisement</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">この感情はよく知られたものです。木材業界と環境団体との戦いは、フォレスト・ウォーズが激しかった頃よりは静かになりましたが、決して消滅したわけではありません。</p>
+        </details>
+      <p>Environmental and outdoors groups, meanwhile, are gearing up to fight.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">しかし、他にも多くのことが変わりました。</p>
+        </details>
+      <p>“Oregonians have been very clear that they don’t want a return to the days of liquidating old-growth forest,” said Steve Pedery, longtime conservation director for the environmental group Oregon Wild.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">オレゴン州立大学コーバリス校にあるマスティンバー建築のジョージ・W・ピービー森林科学センター内のメイン階段。マスティンバーは、木材を重視しつつ環境に優しく、同時にオレゴン州の手頃な住宅供給を促進することを約束しています。</p>
+        </details>
+      <p>The sentiment is familiar. Battles between timber and environmental groups are quieter now than during the pitched height of the Forest Wars, but they never went away.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">山火事は州最大の課題となり、両者の間には歴史的な合意がなされ、そして木材に焦点を当てつつ環境に優しく、同時にオレゴン州の手頃な住宅供給を促進する新しい産業、マスティンバーが登場しています。</p>
+        </details>
+      <p>A lot else has changed, however.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">言い換えれば、「これは祖父の世代の木材産業ではない」と、オレゴン森林産業評議会の広報ディレクターであるサラ・ダンカンは述べました。</p>
+        </details>
+      <p>Wildfires have become the state’s biggest issue, there have been historic agreements between the two sides and there’s a new industry, <span class="vocab-tooltip" data-tip="/mæs ˈtɪmbər/  大断面集成材（マスティンバー）：A category of engineered wood products that can be used as structural elements in buildings, often involving large panelized or layered wood products.">mass timber</span>, that promises to be both timber-focused and environmentally friendly — all while boosting Oregon’s affordable housing supply.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">しかし、過去は大きく影を落としています。そして、トランプ大統領の動きがどのような影響を与えようとも、それは州制以前から始まり、1世紀以上にわたって進化してきた物語の新たな一章に過ぎないでしょう。</p>
+        </details>
+      <p>The main stairs inside George W. Peavy Forest Science Center, a <span class="vocab-tooltip" data-tip="/mæs ˈtɪmbər/  大断面集成材（マスティンバー）：A category of engineered wood products that can be used as structural elements in buildings, often involving large panelized or layered wood products.">mass timber</span> building at Oregon State University in Corvallis. <span class="vocab-tooltip" data-tip="/mæs ˈtɪmbər/  大断面集成材（マスティンバー）：A category of engineered wood products that can be used as structural elements in buildings, often involving large panelized or layered wood products.">Mass timber</span> promises to be both timber-focused and environmentally friendly — all while boosting Oregon’s affordable housing supply.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">オレゴン州の初期の伐採</p>
+        </details>
+      <p>“<span class="vocab-tooltip" data-tip="/mæs ˈtɪmbər/  大断面集成材（マスティンバー）：A category of engineered wood products that can be used as structural elements in buildings, often involving large panelized or layered wood products.">Mass timber</span> represents the future in so many ways,” said Tom DeLuca, dean of the College of Forestry at Oregon State University. “It has the potential to bring a new, hopeful era. We can improve the health of our forests and use that material to build beautiful and even affordable buildings in Portland and Oregon.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">伐採はヨーロッパ人入植者から始まったわけではありません。</p>
+        </details>
+      <p>Advertisement Advertisement</p>
+      <p>Put another way: "This isn't your grandfather's timber industry," said Sara Duncan, communications director for the Oregon Forest Industries Council.</p>
+      <p>But the past looms large. And whatever impact Trump’s moves have, it’ll be just one more chapter of a story that stretches back before statehood and has been evolving for more than a century.</p>
+      <p>Oregon’s early days of logging</p>
+      <p>Logging didn’t begin with European settlers.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>この記事は、オレゴン州が林業と強く結びついていることを示唆しています。あなたの国のアイデンティティは、天然資源や特定の産業とどのように関連していますか？</li>
+      <li>この記事は、林業をめぐる都市と農村の分断について言及しています。あなたの国で、経済的または環境的な問題に関して同様の分断を観察したことはありますか？</li>
+      <li>経済発展と環境保護のバランスをとることは、多くの国にとって課題です。あなたの国では、これら2つの側面が一般的にどのように優先されていると思いますか？</li>
+      <li>「マスティンバー」は革新的で持続可能な解決策として紹介されています。あなたの国に、環境または資源の課題に対処している革新的な産業や解決策はありますか？</li>
+      <li>この記事では、産業界と環境保護団体の間の対立に触れています。あなたは、環境保護と経済的利益に関する議論に参加したり、追跡したりしたことがありますか？</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>消費者は、環境に優しい製品に対してより多くのお金を払うべきだと思いますか？その理由は何ですか？</li>
+      <li>この記事は、林業レベルを設定する上での政府の役割について言及しています。政府は天然資源の管理においてどのような役割を果たすべきだと思いますか？</li>
+      <li>この記事は、政治政権の変化が産業に与える影響を強調しています。あなたの国では、政治指導者の変化が日常生活や特定の産業にどの程度影響を与えると思いますか？</li>
+      <li>木材生産と「国家安全保障」が結びつけられています。日常生活の他のどのような、一見関係のない側面が国家安全保障と関連している可能性があると思いますか？</li>
+      <li>この記事は、「伝統」（林業の歴史）と「革新」（マスティンバー）に触れています。人生のどのような分野で伝統が守られるべきであり、どのような分野で革新が受け入れられるべきだと思いますか？</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+    </div>
+  </div>
+
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
+    </div>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
+    </div>
+
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" href="https://docs.new" target="_blank">
+        Google Docsを新規作成
+      </a>
+      <div class="collab-hint">
+        1. クリックしてドキュメントを作成<br>
+        2. 右上「共有」→「リンクを知っている全員」に変更<br>
+        3. そのURLをDMMチャットに貼る<br>
+        先生がフィードバックを直接書き込めます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 翻訳トグル
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+
+  // レッスンノート（自分用、LocalStorage保存）
+  const NOTES_KEY = 'oin_notes_2026-03-26_lesson-3';
+  const notesArea = document.getElementById('myNotes');
+  const notesSaved = document.getElementById('notesSaved');
+
+  const saved = localStorage.getItem(NOTES_KEY);
+  if (saved) notesArea.value = saved;
+
+  let saveTimer;
+  notesArea.addEventListener('input', () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      localStorage.setItem(NOTES_KEY, notesArea.value);
+      notesSaved.classList.add('show');
+      setTimeout(() => notesSaved.classList.remove('show'), 2000);
+    }, 500);
+  });
+
+</script>
+</body>
+</html>

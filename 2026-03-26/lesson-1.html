@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trump Sets 10% Lumber, Wood Tariffs in Bid to Lift US Industry | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
+  .header .nav a:hover { color: #fff; }
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
+  }
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
+  }
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c5f2d;
+  }
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
+  }
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #555;
+  }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
+  .section {
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
+  .instruction {
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
+  .vocab-pos {
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
+  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
+  .vocab-example {
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* Article */
+  /* Source link */
+  .source-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #eef5ee; border: 1px solid #c5dfc5; border-radius: 6px;
+    padding: 8px 14px; margin-bottom: 16px; font-size: 13px;
+    color: #2c5f2d; text-decoration: none; transition: background 0.2s;
+  }
+  .source-link:hover { background: #d8ecd8; }
+  .source-link .source-icon { font-size: 16px; }
+  .source-domain { font-weight: 700; }
+
+  /* Vocabulary tooltip */
+  .vocab-tooltip {
+    border-bottom: 2px dotted #e67e22;
+    cursor: help;
+    position: relative;
+  }
+  .vocab-tooltip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+    width: max-content;
+    max-width: 320px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 50;
+  }
+  .vocab-tooltip:hover::after { opacity: 1; }
+
+  .article-body { font-size: 16px; line-height: 2; }
+  .article-body p { margin-bottom: 4px; }
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
+  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
+  }
+
+  /* Questions */
+  .question-list { list-style: none; counter-reset: q; }
+  .question-list li {
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
+  }
+  .toggle-slider::before {
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
+  }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Trump Sets 10% Lumber, Wood Tariffs in Bid to Lift US Industry</h2>
+      <div class="date">2026年03月26日（木）</div>
+      <a class="source-link" href="https://www.ttnews.com/articles/lumber-wood-tariffs-trump" target="_blank">
+        <span class="source-icon">📰</span>
+        Original article from <span class="source-domain">ttnews.com</span>
+      </a>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Trade & Markets</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">tariffs</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">関税</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈtærɪfs/</div>
+        <div class="vocab-def">Taxes imposed by a government on imported or exported goods.</div>
+        <div class="vocab-example">
+          President Trump ordered 10% <b>tariffs</b> on imports of softwood timber.
+          <span class="jp jp-text">トランプ大統領は、針葉樹材の輸入に10％の関税を課すよう命じた。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">shore up</div>
+        <div class="vocab-pos">phrasal verb</div>
+        <div class="vocab-jp jp-text">句動詞</div>
+        <div class="vocab-word-jp jp-text">強化する、下支えする</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ʃɔːr ʌp/</div>
+        <div class="vocab-def">To support or strengthen something that is becoming weaker or might fail.</div>
+        <div class="vocab-example">
+          The tariffs are his latest bid to <b>shore up</b> domestic manufacturing.
+          <span class="jp jp-text">この関税は、国内製造業を下支えするための彼の最新の試みである。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">proclamation</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">宣言、布告</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌprɒkləˈmeɪʃən/</div>
+        <div class="vocab-def">A public or official announcement, especially one dealing with a matter of great importance.</div>
+        <div class="vocab-example">
+          The tariffs apply from Oct. 14, according to a <b>proclamation</b> signed Sept. 29.
+          <span class="jp jp-text">関税は9月29日に署名された布告によると、10月14日から適用される。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">subsidies</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">補助金</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈsʌbsɪdiz/</div>
+        <div class="vocab-def">Money paid by a government or organization to keep prices low, or to help a business or industry.</div>
+        <div class="vocab-example">
+          Canada is already subject to duties meant to counter alleged <b>subsidies</b>.
+          <span class="jp jp-text">カナダはすでに、申し立てられた補助金に対抗するための関税の対象となっている。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">sectoral</div>
+        <div class="vocab-pos">adjective</div>
+        <div class="vocab-jp jp-text">形容詞</div>
+        <div class="vocab-word-jp jp-text">部門別の、産業部門の</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈsɛktərəl/</div>
+        <div class="vocab-def">Relating to a particular sector or part of an economy or society.</div>
+        <div class="vocab-example">
+          Trump’s expanding pool of <b>sectoral</b> tariffs cover a wide array of consumer goods.
+          <span class="jp jp-text">トランプの拡大する部門別関税は、幅広い消費財を対象としている。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">carveout</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">例外規定、除外項目</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈkɑːrvaʊt/</div>
+        <div class="vocab-def">An exemption or exclusion from a larger set of rules or an agreement.</div>
+        <div class="vocab-example">
+          Plans for a 100% tariff on pharmaceuticals had a <b>carveout</b> for companies building manufacturing capability in the U.S.
+          <span class="jp jp-text">医薬品への100%関税計画には、米国で製造能力を構築する企業向けの例外規定があった。</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Trump Sets 10% Lumber, Wood Tariffs in Bid to Lift US Industry</div>
+              <p>Log booms sit in the water at a log sort near Prince Rupert, British Columbia, on July 15. (James MacDonald/Bloomberg)</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">ドナルド・トランプ大統領は、国産製造業を下支えするための最新の試みとして、針葉樹材および製材の輸入に10％の関税を、またキッチンキャビネット、化粧台、張り地付き木製品に25％の課徴金を課すよう命じた。これには米国以外で製造された大型トラックに対する25％の関税も含まれる。</p>
+        </details>
+      <p>[Stay on top of transportation news: Get TTNews in your inbox.]</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">9月29日に署名された布告によると、関税は10月14日から適用され、一部の引き上げは1月1日に施行される予定だ。これらは、3月に開始された商務省による木材、材木、および派生プロジェクトの輸入に関する調査に続くものである。</p>
+        </details>
+      <p>President Donald Trump ordered 10% <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> on imports of softwood timber and lumber as well as 25% levies on kitchen cabinets, vanities and upholstered wood products, marking his latest bid to use import taxes to <span class="vocab-tooltip" data-tip="/ʃɔːr ʌp/  強化する、下支えする：To support or strengthen something that is becoming weaker or might fail.">shore up</span> domestic manufacturing, which includes a 25% tariff on heavy-duty trucks manufactured outside the United States.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">トランプ大統領は、計画された措置が「サプライチェーンを強化し、産業の回復力を高め、質の高い雇用を創出し、木製品の国内稼働率を向上させる」と述べた。</p>
+        </details>
+      <p>The <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> are set to apply from Oct. 14, with some increases targeted to take effect Jan. 1, according to a <span class="vocab-tooltip" data-tip="/ˌprɒkləˈmeɪʃən/  宣言、布告：A public or official announcement, especially one dealing with a matter of great importance.">proclamation</span> signed Sept. 29. They follow a Commerce Department investigation into imports of lumber, timber and derivative projects that was launched in March.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">しかし、住宅建設業者は、これらが新築住宅やリノベーションへの投資を抑制する可能性もあると警告している。それは、FRBに金利引き下げを促すことで住宅購入を促進するというトランプ大統領の注目度の高いキャンペーンの効果を鈍らせる可能性がある。</p>
+        </details>
+      <p>Trump said the planned actions will “strengthen supply chains, bolster industrial resilience, create high-quality jobs and increase domestic capacity utilization for wood products.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">カナダは米国の最大の木材供給国であり、すでに申し立てられた補助金や不公正な価格設定に対抗するための35.2％の関税の対象となっているため、この命令によって大きな打撃を受けることになる。トランプ大統領は米国がカナダ産木材を必要としないと主張しているが、カナダからの供給は米国市場の約5分の1を占めている。</p>
+        </details>
+      <p>Yet homebuilders have warned they also could deter investments in new houses and renovations. That could blunt the effectiveness of Trump’s high-profile campaign to boost homebuying by encouraging the Fed to lower interest rates.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">これらの課徴金は、国家安全保障の名目で大統領に関税を課す権限を与える通商拡大法第232条に基づいて課されている。これらは、歳入を増やし貿易不均衡を是正するためにトランプが課してきた、いわゆる相互関税、または国別関税とは異なる。</p>
+        </details>
+      <p>Image Trump</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">トランプの部門別関税の拡大する対象は、幅広い消費財に及ぶ。米国はすでに輸入鉄鋼とアルミニウムに関税を課しており、外国製ソーラーパネル、民間航空機、半導体、重要鉱物に対する他の多数のセクション232調査がまだ実施中である。トランプは以前、ブランド医薬品に100％の関税を課す計画を発表したが、米国で製造能力を構築する企業には例外規定を設けた。</p>
+        </details>
+      <p>Canada stands to be hard hit by the order, as it’s by far the U.S.’s largest wood supplier, and it’s already subject to 35.2% duties meant to counter alleged <span class="vocab-tooltip" data-tip="/ˈsʌbsɪdiz/  補助金：Money paid by a government or organization to keep prices low, or to help a business or industry.">subsidies</span> and unfair pricing. And while Trump has claimed the U.S. doesn’t need Canadian lumber, Canadian supplies make up about a fifth of the U.S. market.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">これらの部門別課徴金は、法的に一層耐久性がある可能性もある。これは最高裁判所が相互関税に対する異議申し立てを審議中であること、そして政権当局者がそれらが却下された場合に備えて堅牢な代替制度を構築しようと努めていることにおいて、重要な要素となる。</p>
+        </details>
+      <p>The levies are being imposed under Section 232 of the Trade Expansion Act, which empowers the president to charge <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> on goods in the name of national security. They are distinct from the so-called reciprocal, or country-specific, <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> Trump has imposed to raise revenue and reverse trade imbalances.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">トランプとの個別の貿易協定を結んだ主要経済圏は、トランプの指令により低い税率が適用される。例えば、英国からの木製品に対する関税は10％を超えず、欧州連合と日本に対しては実質的に15％に上限が設定される。</p>
+        </details>
+      <p>Trump’s expanding pool of <span class="vocab-tooltip" data-tip="/ˈsɛktərəl/  部門別の、産業部門の：Relating to a particular sector or part of an economy or society.">sectoral</span> <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> cover a wide array of consumer goods. The U.S. has already slapped <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> on imported steel and aluminum, and a slew of other Section 232 investigations are still being conducted into foreign-made solar panels, commercial aircraft, semiconductors and critical minerals. Trump earlier announced plans for a 100% tariff on brand-name pharmaceuticals, though with a <span class="vocab-tooltip" data-tip="/ˈkɑːrvaʊt/  例外規定、除外項目：An exemption or exclusion from a larger set of rules or an agreement.">carveout</span> for companies building manufacturing capability in the U.S.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">トランプ大統領の命令により、一部の税率は1月1日に上昇し、特定の張り地付き木製品には30％の高い課徴金が適用され、キッチンキャビネットと化粧台には50％の輸入税が課されることになる。これはトランプが9月25日のソーシャルメディア投稿で示唆した税率を反映しているが、大統領は当初、これらの課徴金が10月1日には施行されると示していた。</p>
+        </details>
+      <p>The <span class="vocab-tooltip" data-tip="/ˈsɛktərəl/  部門別の、産業部門の：Relating to a particular sector or part of an economy or society.">sectoral</span> levies also could be more legally durable, a key factor as the Supreme Court considers a challenge to the reciprocal <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> — and as administration officials work to build a robust alternative regime in case those are struck down.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">米国の住宅建設業者はさらなる関税に反対し、価格上昇を警告しており、一部の関係者はこれらの課徴金がカナダの製材所を閉鎖に追い込む可能性があると主張している。カナダ最大の木材生産会社の1つは、上昇する米国関税と需要の低迷に直面し、6月に従業員の半分にあたる1,000人以上を一時解雇すると発表した。他の主要なカナダの木材会社には、West Fraser Timber Co、Canfor Corp、Interfor Corpがある。</p>
+        </details>
+      <p>Lower Rates for Dealmakers</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「私たちの住宅危機は、輸入木材や材木よりも国家安全保障に対する大きな脅威である」と全米住宅建設業者協会は今年初めに政府に語った。ほとんどの木材や材木は、カナダ、ドイツ、スウェーデン、ブラジルといった長年の同盟国から輸入されており、木材自体は再生可能な資源であり、現代の戦争で主要な役割を果たすことはないと協会は述べた。</p>
+        </details>
+      <p>Major economies that have cut separate trade deals with Trump will have lower rates, according to Trump’s directive. For instance, <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> on wood products from the U.K. won’t exceed 10%, and for the European Union and Japan, they’ll effectively be capped at 15%.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">それでも、トランプは一部の議会共和党議員から、家具、キャビネット、その他の木製品に関税を課して、彼らの地元産業を活性化させるよう圧力を受けていた。中には100％もの高関税を奨励する声もあった。そしてトランプは、国内産業の称賛された南部米国拠点の一部であったノースカロライナ州の家具メーカーに対する同情を示していた。そこではメーカーが補助金を受けた外国の競合他社との競争が激化していると述べている。</p>
+        </details>
+      <p>Mark Hill and Danielle Villegas of PCS Software discuss their AI engine, Cortex, designed specifically to level the playing field for midsized carriers. Tune in above or by going to RoadSigns.ttnews.com.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「家具産業は不公正な外国貿易慣行によって壊滅させられた」とMarsh Furnitureのエドウィン・アンダーウッド社長はリリースで述べた。「国内キャビネット製造において歴史を繰り返させてはならない。」</p>
+        </details>
+      <p>Some rates would increase Jan. 1, under Trump’s order, with certain upholstered wood products subject to a higher 30% levy, and kitchen cabinets and vanities then being hit with a 50% import tax. That mirrors the rates Trump telegraphed in a social media post Sept. 25, though the president had originally indicated those levies would take effect as soon as Oct. 1.</p>
+      <p>U.S. homebuilders have opposed further <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> and warned of higher prices, with some stakeholders insisting the levies could prompt sawmills in Canada to shutter too. One of Canada’s largest lumber producers announced in June it would temporarily lay off more than 1,000 workers — half its workforce — in the face of rising U.S. duties and weakening demand. Other major Canadian lumber companies include West Fraser Timber Co, Canfor Corp and Interfor Corp.</p>
+      <p>“Our housing crisis is a bigger threat to national security than imported lumber or timber,” the National Association of Home Builders told the government earlier this year. Most lumber and timber is imported from longtime allies, such as Canada, Germany, Sweden and Brazil, and lumber itself is a renewable resource that doesn’t play a major role in modern warfare, the association said.</p>
+      <p>Even so, Trump was under pressure from some congressional Republicans to use <span class="vocab-tooltip" data-tip="/ˈtærɪfs/  関税：Taxes imposed by a government on imported or exported goods.">tariffs</span> on furniture, cabinets and other wood products to boost their home-state industries, with some encouraging levies as high as 100%. And Trump has signaled his sympathy for furniture makers in North Carolina — once part of an acclaimed southern U.S. hub for the domestic industry — where manufacturers say they are increasingly competing against subsidized, foreign rivals.</p>
+      <p>“The furniture industry has been wiped out by unfair foreign trade practices,” Edwin Underwood, president of Marsh Furniture, said in a release. “We must not allow history to repeat itself with domestic cabinet manufacturing.”</p>
+      <p>Cost Concerns</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>国際的な貿易政策、例えば関税が、あなたが普段購入する商品の価格にどのように影響を与えていると感じたことはありますか？</li>
+      <li>記事では住宅建設に言及していますが、もしあなたが家を建てたりリノベーションしたりする計画があるとしたら、どのような要素（費用、材料、労働力）が最も重要になりますか？</li>
+      <li>消費者のための価格が上昇するとしても、国が国内製造業を優先することは重要だと思いますか？その理由は何ですか？</li>
+      <li>商品を購入する際、あなたは通常、原産国を確認しますか？それがあなたの購入決定に影響を与えますか？</li>
+      <li>もしあなたのビジネスが輸入材料に依存しているとしたら、新しい関税のような貿易政策の突然の変更にどのように備えますか？</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>政府は、地域産業の支援と他国との良好な貿易関係の維持をどのようにバランスさせるべきだと思いますか？</li>
+      <li>あなたの意見では、今日の世界貿易が直面している最大の課題は何だと思いますか？</li>
+      <li>消費者は、たとえコストが高くなっても、倫理的または地元の製造業を支援する責任があると思いますか？</li>
+      <li>テクノロジーは世界のサプライチェーンを非常に複雑にしました。この相互接続性の長所と短所は何だと思いますか？</li>
+      <li>国家安全保障の保護は、ほぼすべての経済的措置を正当化すると主張する人もいます。経済政策と国家安全保障の懸念との間に、あなたはどこで線を引きますか？</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+    </div>
+  </div>
+
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
+    </div>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
+    </div>
+
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" href="https://docs.new" target="_blank">
+        Google Docsを新規作成
+      </a>
+      <div class="collab-hint">
+        1. クリックしてドキュメントを作成<br>
+        2. 右上「共有」→「リンクを知っている全員」に変更<br>
+        3. そのURLをDMMチャットに貼る<br>
+        先生がフィードバックを直接書き込めます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 翻訳トグル
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+
+  // レッスンノート（自分用、LocalStorage保存）
+  const NOTES_KEY = 'oin_notes_2026-03-26_lesson-1';
+  const notesArea = document.getElementById('myNotes');
+  const notesSaved = document.getElementById('notesSaved');
+
+  const saved = localStorage.getItem(NOTES_KEY);
+  if (saved) notesArea.value = saved;
+
+  let saveTimer;
+  notesArea.addEventListener('input', () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      localStorage.setItem(NOTES_KEY, notesArea.value);
+      notesSaved.classList.add('show');
+      setTimeout(() => notesSaved.classList.remove('show'), 2000);
+    }, 500);
+  });
+
+</script>
+</body>
+</html>

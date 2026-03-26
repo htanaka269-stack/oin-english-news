@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flathead Timber Tour gives behind-the-scenes look at lumber industry | OIN Daily English News</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+  }
+  .header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .header .nav { margin-left: auto; font-size: 14px; }
+  .header .nav a { color: #cde6cd; text-decoration: none; margin-left: 16px; }
+  .header .nav a:hover { color: #fff; }
+
+  /* 2-column layout */
+  .page-layout {
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 56px);
+  }
+  .main-content {
+    flex: 1;
+    max-width: 820px;
+    padding: 24px 24px 24px 32px;
+    min-width: 0;
+  }
+  .sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-header {
+    padding: 16px 16px 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2c5f2d;
+  }
+  .sidebar-header p {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* My Notes */
+  .my-notes-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+  }
+  .my-notes-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .notes-area {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.6;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #2c5f2d; }
+  .notes-saved {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .notes-saved.show { opacity: 1; }
+
+  /* Collab pad */
+  .collab-wrap {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .collab-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .collab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #2c5f2d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 6px;
+  }
+  .collab-btn:hover { background: #3a7a3b; color: #fff; }
+  .collab-hint {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.4;
+  }
+  .collab-link-box {
+    display: none;
+    margin-top: 8px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+    word-break: break-all;
+    color: #555;
+  }
+  .collab-link-box a { color: #2c5f2d; }
+  .copy-btn {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 3px 10px;
+    font-size: 11px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #555;
+  }
+  .copy-btn:hover { background: #ddd; }
+
+  /* Meta */
+  .meta { margin-bottom: 24px; }
+  .meta .breadcrumb { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .meta .breadcrumb a { color: #888; text-decoration: none; }
+  .meta h2 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; }
+  .meta .date { font-size: 14px; color: #888; }
+  .level-badge {
+    display: inline-block; background: #e67e22; color: #fff;
+    border-radius: 4px; padding: 2px 10px; font-size: 13px; font-weight: 700; margin-right: 8px;
+  }
+  .tag {
+    display: inline-block; border: 1px solid #ccc; border-radius: 4px;
+    padding: 2px 10px; font-size: 13px; color: #666;
+  }
+
+  /* Section cards */
+  .section {
+    background: #fff; border-radius: 8px; padding: 32px;
+    margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .section-label { font-size: 14px; color: #999; margin-bottom: 4px; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .section-title-jp { font-size: 16px; color: #666; margin-bottom: 16px; }
+  .instruction {
+    background: #f0f7e6; padding: 12px 16px; border-radius: 6px;
+    font-size: 14px; margin-bottom: 24px; line-height: 1.6;
+  }
+  .instruction .jp { color: #666; font-size: 13px; }
+
+  /* Vocabulary */
+  .vocab-item {
+    padding: 20px 0; border-bottom: 1px solid #eee;
+    display: grid; grid-template-columns: 200px 1fr; gap: 12px;
+  }
+  .vocab-item:last-child { border-bottom: none; }
+  .vocab-word { font-size: 20px; font-weight: 700; color: #e67e22; }
+  .vocab-pos {
+    display: inline-block; border: 1px solid #ccc; border-radius: 3px;
+    padding: 1px 8px; font-size: 12px; color: #666; margin-top: 4px;
+  }
+  .vocab-jp { font-size: 14px; color: #666; margin-top: 4px; }
+  .vocab-word-jp { font-size: 15px; color: #444; font-weight: 600; margin-top: 2px; }
+  .vocab-phonetic { color: #e67e22; font-size: 14px; margin-bottom: 2px; }
+  .vocab-def { font-size: 14px; color: #555; margin-bottom: 12px; }
+  .vocab-example {
+    background: #fafafa; padding: 12px 16px; border-radius: 6px;
+    font-size: 15px; line-height: 1.7;
+  }
+  .vocab-example b { font-weight: 700; }
+  .vocab-example .jp { display: block; font-size: 13px; color: #888; margin-top: 4px; }
+
+  /* Article */
+  /* Source link */
+  .source-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #eef5ee; border: 1px solid #c5dfc5; border-radius: 6px;
+    padding: 8px 14px; margin-bottom: 16px; font-size: 13px;
+    color: #2c5f2d; text-decoration: none; transition: background 0.2s;
+  }
+  .source-link:hover { background: #d8ecd8; }
+  .source-link .source-icon { font-size: 16px; }
+  .source-domain { font-weight: 700; }
+
+  /* Vocabulary tooltip */
+  .vocab-tooltip {
+    border-bottom: 2px dotted #e67e22;
+    cursor: help;
+    position: relative;
+  }
+  .vocab-tooltip::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: normal;
+    width: max-content;
+    max-width: 320px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 50;
+  }
+  .vocab-tooltip:hover::after { opacity: 1; }
+
+  .article-body { font-size: 16px; line-height: 2; }
+  .article-body p { margin-bottom: 4px; }
+  .article-title {
+    font-size: 22px; font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 2px solid #2c5f2d;
+  }
+  .para-jp { margin-bottom: 16px; }
+  .para-jp summary { cursor: pointer; font-size: 12px; color: #999; user-select: none; margin-bottom: 4px; }
+  .para-jp summary:hover { color: #e67e22; }
+  .para-jp-text {
+    background: #fdf8f0; border-left: 3px solid #e67e22;
+    padding: 8px 12px; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 12px;
+  }
+
+  /* Questions */
+  .question-list { list-style: none; counter-reset: q; }
+  .question-list li {
+    counter-increment: q; padding: 16px 0;
+    border-bottom: 1px solid #eee; font-size: 16px;
+  }
+  .question-list li:last-child { border-bottom: none; }
+  .question-list li::before { content: counter(q) "."; font-weight: 700; color: #2c5f2d; margin-right: 8px; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 24px; font-size: 13px; color: #999;
+    border-top: 1px solid #eee; margin-top: 32px;
+  }
+  .footer a { color: #2c5f2d; text-decoration: none; }
+
+  /* Toggle */
+  .toggle-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .toggle-switch { position: relative; width: 44px; height: 24px; }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute; cursor: pointer; inset: 0;
+    background: #ccc; border-radius: 24px; transition: .3s;
+  }
+  .toggle-slider::before {
+    content: ""; position: absolute; height: 18px; width: 18px;
+    left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: #4da6ff; }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  .jp-text { display: none; }
+  body.show-jp .jp-text { display: block; }
+  body.show-jp .vocab-jp { display: block; }
+  .toggle-label { font-size: 14px; color: #666; }
+
+  /* Responsive: collapse sidebar on narrow screens */
+  @media (max-width: 1000px) {
+    .page-layout { flex-direction: column; }
+    .sidebar {
+      position: relative; top: auto; width: 100%;
+      height: auto; border-left: none; border-top: 1px solid #e0e0e0;
+    }
+    .main-content { max-width: 100%; padding: 24px 16px; }
+  }
+</style>
+</head>
+<body class="show-jp">
+<div class="header">
+  <h1>OIN DAILY ENGLISH NEWS</h1>
+  <div class="nav">
+    <a href="index.html">Today's Lessons</a>
+  </div>
+</div>
+
+<div class="page-layout">
+  <!-- Left: Lesson content -->
+  <div class="main-content">
+    <div class="meta">
+      <div class="breadcrumb">
+        <a href="index.html">OIN English</a> / Lessons / Daily News
+      </div>
+      <h2>Flathead Timber Tour gives behind-the-scenes look at lumber industry</h2>
+      <div class="date">2026年03月26日（木）</div>
+      <a class="source-link" href="https://nbcmontana.com/news/local/flathead-timber-tour-gives-behind-the-scenes-look-at-lumber-industry" target="_blank">
+        <span class="source-icon">📰</span>
+        Original article from <span class="source-domain">nbcmontana.com</span>
+      </a>
+      <div style="margin-top:8px">
+        <span class="level-badge">8</span>
+        <span class="level-badge" style="background:#555">TOEIC 900</span>
+        <span class="tag">Forestry & Timber</span>
+      </div>
+      <div class="toggle-wrap" style="margin-top:12px">
+        <label class="toggle-switch">
+          <input type="checkbox" id="jpToggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">翻訳を表示</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 1</div>
+      <div class="section-title">Vocabulary</div>
+      <div class="section-title-jp">ボキャブラリー</div>
+      <div class="instruction">
+        Repeat each word, definition, and example sentence after your tutor.
+        <div class="jp">講師のあとについて、各単語、定義、例文を言ってみましょう。</div>
+      </div>
+      
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">timber</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">材木、立木</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈtɪmbər/</div>
+        <div class="vocab-def">Wood prepared for use in building and carpentry; trees that are grown to be used for wood.</div>
+        <div class="vocab-example">
+          The company specializes in sustainable <b>timber</b> harvesting.
+          <span class="jp jp-text">その会社は持続可能な材木伐採を専門としている。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">mill</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">製材所、工場</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/mɪl/</div>
+        <div class="vocab-def">A factory for grinding grain, or for processing raw materials such as wood or steel into a finished product.</div>
+        <div class="vocab-example">
+          The lumber <b>mill</b> processes logs into various types of wood products.
+          <span class="jp jp-text">その製材所は丸太をさまざまな種類の木材製品に加工している。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">maximize</div>
+        <div class="vocab-pos">verb</div>
+        <div class="vocab-jp jp-text">動詞</div>
+        <div class="vocab-word-jp jp-text">最大化する、最大限に活用する</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈmæksɪmaɪz/</div>
+        <div class="vocab-def">To make as great or large as possible; to make the best use of something.</div>
+        <div class="vocab-example">
+          We aim to <b>maximize</b> efficiency and minimize waste in our operations.
+          <span class="jp jp-text">私たちは事業において効率を最大化し、無駄を最小限に抑えることを目指している。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">cogeneration</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">コジェネレーション、熱電併給</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˌkoʊdʒɛnəˈreɪʃən/</div>
+        <div class="vocab-def">The production of electricity and heat from the same fuel source.</div>
+        <div class="vocab-example">
+          The plant's <b>cogeneration</b> system provides both power and heating for the facility.
+          <span class="jp jp-text">そのプラントのコジェネレーションシステムは、施設に電力と暖房の両方を提供している。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">harvesting</div>
+        <div class="vocab-pos">noun</div>
+        <div class="vocab-jp jp-text">名詞</div>
+        <div class="vocab-word-jp jp-text">伐採、収穫</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/ˈhɑːrvəstɪŋ/</div>
+        <div class="vocab-def">The process of gathering a crop or taking trees from a forest.</div>
+        <div class="vocab-example">
+          Sustainable forest <b>harvesting</b> practices help protect the environment.
+          <span class="jp jp-text">持続可能な森林伐採の慣行は環境保護に役立つ。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vocab-item">
+      <div>
+        <div class="vocab-word">perpetuate</div>
+        <div class="vocab-pos">verb</div>
+        <div class="vocab-jp jp-text">動詞</div>
+        <div class="vocab-word-jp jp-text">永続させる、存続させる</div>
+      </div>
+      <div>
+        <div class="vocab-phonetic">/pərˈpɛtʃueɪt/</div>
+        <div class="vocab-def">To make (something) continue indefinitely or for a long period.</div>
+        <div class="vocab-example">
+          The goal is to <b>perpetuate</b> the forest's health for future generations.
+          <span class="jp jp-text">目標は、将来の世代のために森林の健全さを永続させることである。</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 2</div>
+      <div class="section-title">Article</div>
+      <div class="section-title-jp">ニュース記事</div>
+      <div class="instruction">
+        Read the article aloud on your own or repeat each paragraph after your tutor.
+        <div class="jp">一人でまたは講師の後について、各段落を読んでみましょう。</div>
+      </div>
+      <div class="article-body">
+        <div class="article-title">Flathead Timber Tour gives behind-the-scenes look at lumber industry</div>
+              <p>Community members in the Flathead got a behind-the-scenes look at how the <span class="vocab-tooltip" data-tip="/ˈtɪmbər/  材木、立木：Wood prepared for use in building and carpentry; trees that are grown to be used for wood.">timber</span> industry works Thursday.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">フラットヘッド地域の住民は木曜日、木材産業がどのように機能しているかを舞台裏で垣間見ることができました。</p>
+        </details>
+      <p>From forest management to wood production, participants on the 2025 Flathead <span class="vocab-tooltip" data-tip="/ˈtɪmbər/  材木、立木：Wood prepared for use in building and carpentry; trees that are grown to be used for wood.">Timber</span> Tour got a first-hand look at the industry.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">森林管理から木材生産まで、2025年フラットヘッド・ティンバー・ツアーの参加者は、この産業を直接見て学びました。</p>
+        </details>
+      <p>The first stop was at the F.H. Stoltze Land and Lumber <span class="vocab-tooltip" data-tip="/mɪl/  製材所、工場：A factory for grinding grain, or for processing raw materials such as wood or steel into a finished product.">mill</span> in Columbia Falls, where crews showed what goes on in the facility.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">最初の立ち寄り先はコロンビアフォールズにあるF.H.ストルツェ・ランド・アンド・ランバーの製材所で、作業員たちが施設内で何が行われているかを見せました。</p>
+        </details>
+      <p>“I’ve been with Stoltze for about eight years. Stoltze has been here a lot longer than that,” said forester Matt Bishop. “They were established in 1912. We’ve been here at this <span class="vocab-tooltip" data-tip="/mɪl/  製材所、工場：A factory for grinding grain, or for processing raw materials such as wood or steel into a finished product.">mill</span> site since the early ’40s. We’ve been making boards ever since.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「私はストルツェに約8年間います。ストルツェはそれよりもずっと長くここにいます」と林業家のマット・ビショップ氏は言いました。「彼らは1912年に設立されました。私たちは1940年代初頭からこの製材所の敷地で、それ以来ずっと木材を製造しています。」</p>
+        </details>
+      <p>Stoltze generally runs around 40 log trucks a day through the sawmill, which generates roughly 70 million board feet of lumber every year.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">ストルツェは通常、毎日約40台のログトラックを製材所に運び込み、年間およそ7千万ボードフィートの木材を生産しています。</p>
+        </details>
+      <p>Employees want to <span class="vocab-tooltip" data-tip="/ˈmæksɪmaɪz/  最大化する、最大限に活用する：To make as great or large as possible; to make the best use of something.">maximize</span> every log that comes to the <span class="vocab-tooltip" data-tip="/mɪl/  製材所、工場：A factory for grinding grain, or for processing raw materials such as wood or steel into a finished product.">mill</span>.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">従業員は、製材所に運ばれてくるすべての丸太を最大限に活用したいと考えています。</p>
+        </details>
+      <p>“Every log that comes into this place, we want to <span class="vocab-tooltip" data-tip="/ˈmæksɪmaɪz/  最大化する、最大限に活用する：To make as great or large as possible; to make the best use of something.">maximize</span> the value and the utilization of those logs coming through here,” said Bishop. “So that’s why we invest in our <span class="vocab-tooltip" data-tip="/ˌkoʊdʒɛnəˈreɪʃən/  コジェネレーション、熱電併給：The production of electricity and heat from the same fuel source.">cogeneration</span>. One to produce green energy for the Flathead Valley, as well as utilizing as much of those trees that we are <span class="vocab-tooltip" data-tip="/ˈhɑːrvəstɪŋ/  伐採、収穫：The process of gathering a crop or taking trees from a forest.">harvesting</span> out in the woods as much as we can.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「ここに来るすべての丸太について、私たちはその価値と利用を最大限に引き出したいと考えています」とビショップ氏は述べました。「だからこそ、私たちはコジェネレーションに投資しています。一つはフラットヘッドバレーにグリーンエネルギーを生産するため、そしてもう一つは、私たちが森で伐採している木材をできるだけ多く利用するためです。」</p>
+        </details>
+      <p>For the last half of the tour, community members went to the Round Prairie <span class="vocab-tooltip" data-tip="/ˈtɪmbər/  材木、立木：Wood prepared for use in building and carpentry; trees that are grown to be used for wood.">Timber</span> Sale, which is a current active logging site.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">ツアーの後半では、地域住民は現在活発な伐採現場であるラウンドプレーリー・ティンバーセールに向かいました。</p>
+        </details>
+      <p>“It’s about a 70-acre unit where we're implementing a commercial thin-type treatment,” said Zachary Miller, Montana raw material manager for Weyerhaeuser. “We’re going to release some of the overstory and then <span class="vocab-tooltip" data-tip="/pərˈpɛtʃueɪt/  永続させる、存続させる：To make (something) continue indefinitely or for a long period.">perpetuate</span> some understory regeneration to establish for the future.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「約70エーカーの区画で、商業間伐型処理を実施しています」と、Weyerhaeuserのモンタナ州原材料マネージャーであるザカリー・ミラー氏は述べました。「上層の一部を解放し、将来のために下層の再生を永続させるつもりです。」</p>
+        </details>
+      <p>The wood will sustain the three Weyerhaeuser <span class="vocab-tooltip" data-tip="/mɪl/  製材所、工場：A factory for grinding grain, or for processing raw materials such as wood or steel into a finished product.">mills</span> in Columbia Falls and Evergreen, which in turn support the local community.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">この木材は、コロンビアフォールズとエバーグリーンの3つのWeyerhaeuser製材所を維持し、それがひいては地域社会を支えています。</p>
+        </details>
+      <p>“We offer logging rates, or purchase rates for suppliers such as tough go to sell their lumber or their logs to our facilities to make product,” said Miller. “Lumber, plywood and MDF (medium density fiberboard). Through that, there’s businesses that can be supported through those manufacturing centers.”</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">「私たちは、例えばタフ・ゴーのようなサプライヤーが私たちの施設に木材や丸太を販売して製品を作るための伐採料金、あるいは購入料金を提供しています」とミラー氏は言いました。「木材、合板、MDF（中密度繊維板）です。それを通して、それらの製造センターを通じてビジネスが支援されます。」</p>
+        </details>
+      <p>To find out more about F.H. Stoltze Land and Lumber, click here.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">F.H.ストルツェ・ランド・アンド・ランバーについてもっと知るには、ここをクリックしてください。</p>
+        </details>
+      <p>To find out more about Weyerhaeuser, click here.</p>
+        <details class="para-jp">
+          <summary>日本語訳を表示</summary>
+          <p class="para-jp-text">Weyerhaeuserについてもっと知るには、ここをクリックしてください。</p>
+        </details>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 3</div>
+      <div class="section-title">Discussion</div>
+      <div class="section-title-jp">ディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>Have you ever had the opportunity to take a "behind-the-scenes" tour of a factory, a farm, or any industrial facility? What was your experience like?</li>
+      <li>The article highlights how local industries support their community. Do you know of any local industries that play a significant role in your community?</li>
+      <li>What common products do you use regularly that are made from wood or timber? Do you ever think about where those materials come from?</li>
+      <li>If you were to participate in a tour like the Flathead Timber Tour, what specific aspects of the lumber industry would you be most interested in learning about?</li>
+      <li>Many companies, like those in the article, aim to "maximize value and utilization." How do you try to maximize value or utility in your own daily life, perhaps with food or other resources?</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Exercise 4</div>
+      <div class="section-title">Further Discussion</div>
+      <div class="section-title-jp">一歩踏み込んだディスカッション</div>
+      <div class="instruction">
+        Have a discussion based on the following questions.
+        <div class="jp">以下の質問をもとにディスカッションをしましょう。</div>
+      </div>
+      <ol class="question-list">
+              <li>Do you think it's important for consumers to understand the production processes of the goods they buy, even for everyday items? Why or why not?</li>
+      <li>The article mentions producing "green energy." What are some other examples of industries adopting more environmentally friendly practices?</li>
+      <li>How do you think technology might further transform traditional industries like timber and lumber in the future?</li>
+      <li>When considering resource management, how can societies balance economic development with environmental sustainability?</li>
+      <li>In your opinion, what is the biggest challenge facing natural resource-based industries today, and how might it be addressed?</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>Generated by OIN Daily English News System</p>
+      <p>Powered by Claude AI | <a href="index.html">Back to Today's Lessons</a></p>
+    </div>
+  </div>
+
+  <!-- Right: Sticky sidebar notes -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h3>Lesson Notes</h3>
+      <p>自動保存されます</p>
+    </div>
+
+    <div class="my-notes-wrap">
+      <label>自分用メモ</label>
+      <textarea class="notes-area" id="myNotes" placeholder="発音の指摘、新しい表現、次回の課題など..."></textarea>
+      <div class="notes-saved" id="notesSaved">保存しました ✓</div>
+    </div>
+
+    <div class="collab-wrap">
+      <label>先生と共有するノート</label>
+      <a class="collab-btn" href="https://docs.new" target="_blank">
+        Google Docsを新規作成
+      </a>
+      <div class="collab-hint">
+        1. クリックしてドキュメントを作成<br>
+        2. 右上「共有」→「リンクを知っている全員」に変更<br>
+        3. そのURLをDMMチャットに貼る<br>
+        先生がフィードバックを直接書き込めます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 翻訳トグル
+  document.getElementById('jpToggle').addEventListener('change', function() {
+    document.body.classList.toggle('show-jp', this.checked);
+  });
+
+  // レッスンノート（自分用、LocalStorage保存）
+  const NOTES_KEY = 'oin_notes_2026-03-26_lesson-2';
+  const notesArea = document.getElementById('myNotes');
+  const notesSaved = document.getElementById('notesSaved');
+
+  const saved = localStorage.getItem(NOTES_KEY);
+  if (saved) notesArea.value = saved;
+
+  let saveTimer;
+  notesArea.addEventListener('input', () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      localStorage.setItem(NOTES_KEY, notesArea.value);
+      notesSaved.classList.add('show');
+      setTimeout(() => notesSaved.classList.remove('show'), 2000);
+    }, 500);
+  });
+
+</script>
+</body>
+</html>
